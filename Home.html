@@ -3,9 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="./style/main.css">
 </head>
 <body>
-    
+    <div id="container">
+    <div class="menu">
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Shops</li>
+            <li>Contact</li>
+        </ul>
+    </div>
+    <div class="shopping-cart">
+        <h2>Giỏ Hàng </h2>
+        <table border="2">
+            <thead>
+                <th>Image</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Remove</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td><img src="image/anh1.png" alt="anh1" width="150px"></td>
+                <td>Giày Baseketball E35</td>
+                <td>8.700.000đ<br> <del>9.000.000đ</del></td>
+                <td>
+                    <button>-</button>
+                    <input type="text" value="1" class="text">
+                    <button>+</button>
+                </td>
+                <td>8.700.000đ</td>
+                <td><button>Xóa</button></td>
+            </tr>
+            <tr>
+                <td><img src="image/anh2.png" alt="anh1" width="150px"></td>
+                <td>Giày Baseketball E35</td>
+                <td>8.700.000đ<br> <del>9.000.000đ</del></td>
+                <td>
+                    <button>-</button>
+                    <input type="text" value="1" class="text">
+                    <button>+</button>
+                </td>
+                <td>8.700.000đ</td>
+                <td><button>Xóa</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <footer>
+
+    </footer>
+    </div>
 </body>
 </html>
