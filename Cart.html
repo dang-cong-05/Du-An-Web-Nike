@@ -7,18 +7,15 @@
     <link rel="stylesheet" href="./style/main.css">
 </head>
 <body>
-    <div id="container">
-    <div class="menu">
-        <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Shops</li>
-            <li>Contact</li>
+        <ul class="menu">
+            <li><a href="#">Home </a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Shops</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
-    </div>
     <div class="shopping-cart">
         <h2>Giỏ Hàng </h2>
-        <table border="2">
+        <table class="cart-table">
             <thead>
                 <th>Image</th>
                 <th>Product</th>
@@ -29,35 +26,31 @@
             </thead>
             <tbody>
             <tr>
-                <td><img src="image/anh1.png" alt="anh1" width="150px"></td>
+                <td><img src="images/anh1.png" alt="Product Image" class="product-image"></td>
                 <td>Giày Baseketball E35</td>
                 <td>8.700.000đ<br> <del>9.000.000đ</del></td>
                 <td>
-                    <button>-</button>
-                    <input type="text" value="1" class="text">
-                    <button>+</button>
+                    <button class="quantity-btn">-</button>
+                    <input type="text" value="1" >
+                    <button class="quantity-btn">+</button>
                 </td>
                 <td>8.700.000đ</td>
-                <td><button>Xóa</button></td>
+                <td><button class="remove-btn">Xóa</button></td>
             </tr>
             <tr>
-                <td><img src="image/anh2.png" alt="anh1" width="150px"></td>
+                <td><img src="images/anh2.png" alt="Product Image" class="product-image"></td>
                 <td>Giày Baseketball E35</td>
                 <td>8.700.000đ<br> <del>9.000.000đ</del></td>
                 <td>
-                    <button>-</button>
-                    <input type="text" value="1" class="text">
-                    <button>+</button>
+                    <button class="quantity-btn">-</button>~
+                    <input type="text" value="1" >
+                    <button class="quantity-btn">+</button>
                 </td>
                 <td>8.700.000đ</td>
-                <td><button>Xóa</button></td>
+                <td><button class="remove-btn">Xóa</button></td>
             </tr>
             </tbody>
         </table>
-    </div>
-    <footer>
-
-    </footer>
     </div>
 </body>
 </html>
