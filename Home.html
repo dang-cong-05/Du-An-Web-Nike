@@ -3,15 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./admin/vendor/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="./font/fontawesome-free-6.6.0-web/css/all.min.css">
     <link rel="stylesheet" href="/style/home.css">
     <title>Document</title>
 </head>
 <body>
     <div class="container">
         <header>
-            
+            <nav>
+                <div class="logo">
+                    <img src="/images/Logo.png" >
+                </div>
+                <ul class="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Service</a></li>
+                </ul>
+                <div class="search-container">
+                    <input type="text" placeholder="Search..." class="search-input">
+                    <i class="search-icon fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="menu-icon">
+                    <div class="user-icon">
+                        <span><i class="fa-solid fa-user"></i></span>
+                    </div>
+                    <div class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-count">2</span>
+                    </div>
+                </div>
+            </nav>
         </header>
+        <div id="slider">
+            <a class="prev" onclick="">&#10094;</a>
+            <img src="/images/Slide-1.jpg">
+            <a class="next" onclick="">&#10095;</a>
+        </div>
+        <main></main>
+        <footer></footer>
     </div>
+
+    <script src="./script/slideshow.js"></script>
 </body>
 </html>
