@@ -154,6 +154,21 @@ nav .menu-icon .cart-count{
     object-fit: cover;
     border-radius: 5px;
 }
+.details {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.6;
+}
+.quantity {
+    width: 50px; /* Adjust width as needed */
+    text-align: center; /* Centers the number */
+    padding: 5px;
+    font-size: 16px; /* Adjust font size for readability */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
 .quantity-btn, .remove-btn {
     border: none;
     padding: 10px;
@@ -191,7 +206,7 @@ input[type="text"] {
     border-radius: 5px;
     padding: 5px;
 }
-.add-to-cart, .buy-now {
+.buy-now {
     display: inline-block;
     padding: 10px 20px;
     color: #fff;
@@ -205,6 +220,9 @@ input[type="text"] {
 .buy-now {
     background-color: #ffcc00;
     color: #333;
+}
+#grand-total {
+    margin-top: 20px;
 }
 /* Đáp ứng màn hình nhỏ hơn */
 @media (max-width: 768px) {
