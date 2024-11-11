@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giỏ Hàng</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="./style/Cart.css">
+    <link rel="stylesheet" href="./style/home.css">
+
 </head>
+
 <body>
     <div class="container">
         <header>
             <nav>
                 <div class="logo">
-                    <img src="/images/Logo.png" >
+                    <img src="/images/Logo.png">
                 </div>
                 <ul class="menu">
                     <li><a href="#">Home</a></li>
@@ -35,45 +39,85 @@
                 </div>
             </nav>
         </header>
-    <div class="shopping-cart">
-        <h2>Giỏ Hàng </h2>
-        <table class="cart-table">
-            <thead>
-                <th>Image</th>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-                <th>Remove</th>
-            </thead>
-            <tbody>
-            <tr>
-                <td><img src="images/anh1.png" alt="Product Image" class="product-image"></td>
-                <td>Giày Baseketball E35</td>
-                <td>8.700.000đ<br> <del>9.000.000đ</del></td>
-                <td>
-                    <button class="quantity-btn">-</button>
-                    <input type="number" value="1">
-                    <button class="quantity-btn">+</button>
-                </td>
-                <td>8.700.000đ</td>
-                <td><button class="remove-btn">Xóa</button></td>
-            </tr>
-            <tr>
-                <td><img src="images/anh2.png" alt="Product Image" class="product-image"></td>
-                <td>Giày Baseketball E35</td>
-                <td>8.700.000đ<br> <del>9.000.000đ</del></td>
-                <td>
-                    <button class="quantity-btn">-</button>
-                    <input type="number" value="1">
-                    <button class="quantity-btn">+</button>
-                </td>
-                <td>8.700.000đ</td>
-                <td><button class="remove-btn">Xóa</button></td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="shopping-cart">
+            <h2>Giỏ Hàng </h2>
+            <table class="cart-table">
+                <thead>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Remove</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="images/anh1.png" alt="Product Image" class="product-image"></td>
+                        <td>Giày Baseketball E35</td>
+                        <td class="price">8700000</td>
+                        <td>
+                            <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                            <input type="number" value="1" class="quantity" onchange="updateTotal(this)">
+                            <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                        </td>
+                        <td class="product-total">8700000đ</td>
+                        <td><button class="remove-btn" onclick="removeProduct(this)">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/anh2.png" alt="Product Image" class="product-image"></td>
+                        <td>Giày Baseketball E35</td>
+                        <td class="price">8700000</td>
+                        <td>
+                            <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                            <input type="number" value="1" class="quantity" onchange="updateTotal(this)">
+                            <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                        </td>
+                        <td class="product-total">8700000đ</td>
+                        <td><button class="remove-btn" onclick="removeProduct(this)">Xóa</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="grand-total">Tổng Cộng: 0đ</h3>
+            <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            <button class="buy-now">Mua ngay</button>
+        </div>
     </div>
-    </div>
+    <script>
+        function updateQuantity(button, change) {
+            const quantityInput = button.parentElement.querySelector('.quantity');
+            let quantity = parseInt(quantityInput.value) + change;
+            quantity = quantity < 1 ? 1 : quantity; // Prevent quantity less than 1
+            quantityInput.value = quantity;
+            updateTotal(quantityInput);
+        }
+
+        function updateTotal(input) {
+            const row = input.closest('tr');
+            const price = parseInt(row.querySelector('.price').textContent);
+            const quantity = parseInt(input.value);
+            const total = price * quantity;
+            row.querySelector('.product-total').textContent = total.toLocaleString() + 'đ';
+            updateGrandTotal();
+        }
+
+        function updateGrandTotal() {
+            const totals = document.querySelectorAll('.product-total');
+            let grandTotal = 0;
+            totals.forEach(total => {
+                grandTotal += parseInt(total.textContent.replace('đ', '').replace(/,/g, ''));
+            });
+            document.getElementById('grand-total').textContent = 'Tổng Cộng: ' + grandTotal.toLocaleString() + 'đ';
+        }
+
+        function removeProduct(button) {
+            const row = button.closest('tr');
+            row.remove();
+            updateGrandTotal();
+        }
+
+        // Initialize totals on page load
+        document.querySelectorAll('.quantity').forEach(input => updateTotal(input));
+    </script>
 </body>
+
 </html>
