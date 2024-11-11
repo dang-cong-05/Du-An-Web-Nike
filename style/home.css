@@ -4,6 +4,9 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+a {
+    color: #000000;
+}
 .container {
     width: 1350px;
     margin: 0 auto;
@@ -120,11 +123,21 @@ nav .menu-icon .cart-count{
 }
 #slider {
     position: relative;
+    width: 100%;
     margin-top: 70px;
+    overflow: hidden;
 }
+
 #slider img {
     width: 100%;
+    display: none;
+ }
+#slider img.displaySlide {
+    display: block;
+    animation-name: ShowSlide;
+    animation-duration: .7s;
 }
+
 .prev, .next {
     cursor: pointer;
     position: absolute;
@@ -148,4 +161,12 @@ nav .menu-icon .cart-count{
 }
 .prev:hover, .next:hover {
     background-color: rgba(0,0,0,0.8);
+}
+
+@keyframes ShowSlide {
+    from {
+        opacity: .6;
+    }to{
+        opacity: 1;
+    }
 }
