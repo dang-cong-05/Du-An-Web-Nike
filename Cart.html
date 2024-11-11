@@ -4,15 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giỏ Hàng</title>
-    <link rel="stylesheet" href="./style/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./style/Cart.css">
 </head>
 <body>
-        <ul class="menu">
-            <li><a href="#">Home </a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Shops</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="/images/Logo.png" >
+                </div>
+                <ul class="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Service</a></li>
+                </ul>
+                <div class="search-container">
+                    <input type="text" placeholder="Search..." class="search-input">
+                    <i class="search-icon fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="menu-icon">
+                    <div class="user-icon">
+                        <span><i class="fa-solid fa-user"></i></span>
+                    </div>
+                    <div class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-count">2</span>
+                    </div>
+                </div>
+            </nav>
+        </header>
     <div class="shopping-cart">
         <h2>Giỏ Hàng </h2>
         <table class="cart-table">
@@ -42,7 +64,7 @@
                 <td>Giày Baseketball E35</td>
                 <td>8.700.000đ<br> <del>9.000.000đ</del></td>
                 <td>
-                    <button class="quantity-btn">-</button>~
+                    <button class="quantity-btn">-</button>
                     <input type="number" value="1">
                     <button class="quantity-btn">+</button>
                 </td>
@@ -51,6 +73,7 @@
             </tr>
             </tbody>
         </table>
+    </div>
     </div>
 </body>
 </html>
