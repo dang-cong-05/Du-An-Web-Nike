@@ -20,7 +20,7 @@ header {
   left: 0;
   z-index: 1;
   background-color: #fff;
-  box-shadow: 0 0 7px #333 ;
+  box-shadow: 0 0 7px #333;
 }
 nav {
   width: 100%;
@@ -101,11 +101,44 @@ nav .menu-icon {
   display: flex;
   justify-content: center;
 }
-nav .menu-icon .user-icon {
-  margin-right: 13px;
+.menu-icon i {
+  line-height: 30px;
 }
-nav .menu-icon .cart-icon {
+nav .menu-icon .cart-icon,
+nav .menu-icon .user-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
   position: relative;
+}
+.dropdown-menu {
+  display: none;
+  min-width: 120px;
+  height: 100px;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  padding: 10px 0;
+}
+.dropdown-menu a {
+  width: 100%;
+  line-height: 30px;
+  display: block;
+  margin-top: 6px;
+  padding-left: 12px;
+  text-decoration: none;
+}
+.user-icon:hover .dropdown-menu {
+  display: block;
+}
+.dropdown-menu a:hover {
+  background-color: #ccc;
 }
 nav .menu-icon .user-icon i:hover,
 nav .menu-icon .cart-icon i:hover {
@@ -171,7 +204,7 @@ nav .menu-icon .cart-count {
   margin: 50px auto;
   height: 600px;
 }
-.Latest-section h3{
+.Latest-section h3 {
   padding: 10px 0;
   font-size: 22px;
   font-weight: 300;
@@ -192,7 +225,7 @@ nav .menu-icon .cart-count {
   background-color: rgba(46, 45, 45, 0.5);
   color: #fff;
 }
-.new-item-title{
+.new-item-title {
   padding: 5px 0;
 }
 .new-nav-btn {
@@ -205,7 +238,7 @@ nav .menu-icon .cart-count {
   line-height: 35px;
   text-align: center;
 }
-.new-nav-btn:hover{
+.new-nav-btn:hover {
   background-color: #ddd;
   color: #333;
 }
@@ -214,7 +247,7 @@ footer {
   width: 100%;
   height: 60px;
   background-color: #ffffff;
-  box-shadow: 0 0 2px #333 ;
+  box-shadow: 0 0 2px #333;
 }
 footer > ul {
   width: 100%;
@@ -224,9 +257,9 @@ footer > ul {
   justify-content: space-evenly;
   list-style: none;
 }
-footer > ul > li{
-  cursor: pointer;  
-  transition: all .4s ease;
+footer > ul > li {
+  cursor: pointer;
+  transition: all 0.4s ease;
 }
 footer > ul > li:hover {
   color: #fff;
