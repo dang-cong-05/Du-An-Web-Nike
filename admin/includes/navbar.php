@@ -52,8 +52,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="#">Danh sách </a>
                         <a class="collapse-item" href="#">thêm mới</a>
-                        <!-- <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a> -->
+                    
                     </div>
                 </div>
             </li>
@@ -76,11 +75,7 @@
                         <h6 class="collapse-header">Products:</h6>
                         <a class="collapse-item" href="#">Danh sách</a>
                         <a class="collapse-item" href="#">Thêm mới</a>
-                        <!-- <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a> -->
+                   
                     </div>
                 </div>
             </li>
@@ -93,10 +88,10 @@
                 <div id="collapsecategory" class="collapse" aria-labelledby="headingcategory"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">Danh sách </a>
-                        <a class="collapse-item" href="#">thêm mới</a>
-                        <!-- <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a> -->
+
+                        <a class="collapse-item" href="index.php?act=listCategory">Danh sách </a>
+                        <a class="collapse-item" href="index.php?act=insertCategory">thêm mới</a>
+                    
                     </div>
                 </div>
             </li>
@@ -109,17 +104,17 @@
                 <div id="collapsedonhang" class="collapse" aria-labelledby="headingdonhang"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
+
                         <a class="collapse-item" href="#">Danh sách </a>
-                        <a class="collapse-item" href="#">thêm mới</a>
-                        <!-- <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a> -->
+                        <a class="collapse-item" href="">thêm mới</a>
+                      
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Bình luận</span></a>
             </li>
@@ -146,12 +141,12 @@
         <!-- End of Sidebar -->
 
             <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
+    <!-- <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
-    </a>
+    </a> -->
 
         <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <!-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -168,4 +163,4 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->

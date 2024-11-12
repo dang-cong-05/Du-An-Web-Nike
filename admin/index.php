@@ -285,7 +285,28 @@ include('includes/navbar.php');
             </div>
             <!-- End of Main Content -->
 
-           
+            
+            <?php
+require_once("models/common.php");
+
+require_once ("models/Category.php");
+
+require_once ("Controllers/CategoryController.php");
+
+
+$act = $_GET['act'] ?? "";
+
+match($act){
+   
+    "listCategory"=>(new CategoryController)->listcatogeri(),
+    // "add" => (new CategoryController)->add(),
+    "deleteCategori"=>(new CategoryController)->deleteCategory(),
+    // "add" => (new CategoryController)->view(),
+    "insertCategory"=>(new CategoryController)->insertCategory(),
+    
+    default =>"404",
+};
+?>       
 
  
 <?php
