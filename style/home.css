@@ -18,7 +18,9 @@ header {
   top: 0;
   right: 0;
   left: 0;
-  /* background-color: #e0dada; */
+  z-index: 1;
+  background-color: #fff;
+  box-shadow: 0 0 7px #333 ;
 }
 nav {
   width: 100%;
@@ -164,7 +166,48 @@ nav .menu-icon .cart-count {
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
-
+.content-section {
+  padding: 0 40px;
+  margin: 30px auto;
+  height: 600px;
+}
+.Latest-section h3{
+  padding: 10px 0;
+  font-size: 20px;
+}
+.new-list {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+}
+.new-item {
+  position: relative;
+}
+.new-item-info {
+  width: 100%;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  background-color: rgba(46, 45, 45, 0.5);
+  color: #fff;
+}
+.new-item-title{
+  padding: 5px 0;
+}
+.new-nav-btn {
+  display: inline-block;
+  width: 100px;
+  height: 35px;
+  border-radius: 20px;
+  background-color: #fff;
+  text-decoration: none;
+  line-height: 35px;
+  text-align: center;
+}
+.new-nav-btn:hover{
+  background-color: #ddd;
+  color: #333;
+}
 @keyframes ShowSlide {
   from {
     opacity: 0.6;
