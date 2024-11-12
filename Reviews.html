@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đánh Giá Sản Phẩm</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS styling for the review page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .review-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .review-container h2 {
+            text-align: center;
+            color: #333;
+        }
+        .review-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .review-form input, .review-form textarea {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .review-form textarea {
+            resize: vertical;
+        }
+        .rating-stars {
+            display: flex;
+            gap: 5px;
+            cursor: pointer;
+            font-size: 24px;
+            color: #ddd;
+        }
+        .rating-stars i.filled {
+            color: #ffdd00;
+        }
+        .submit-btn {
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .reviews-display {
+            margin-top: 30px;
+        }
+        .review {
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+        }
+        .review .reviewer-name {
+            font-weight: bold;
+            color: #333;
+        }
+        .review .review-text {
+            margin-top: 10px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="review-container">
+        <h2>Để Lại Đánh Giá</h2>
+        <form class="review-form" onsubmit="addReview(event)">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <div class="rating-stars" id="rating-stars">
+                <!-- Five stars for rating -->
+                <i class="fa fa-star" onclick="setRating(1)"></i>
+                <i class="fa fa-star" onclick="setRating(2)"></i>
+                <i class="fa fa-star" onclick="setRating(3)"></i>
+                <i class="fa fa-star" onclick="setRating(4)"></i>
+                <i class="fa fa-star" onclick="setRating(5)"></i>
+            </div>
+            <textarea id="review" rows="4" placeholder="Write your review..." required></textarea>
+            <button type="submit" class="submit-btn">Submit Review</button>
+        </form>
+        
+        <div class="reviews-display" id="reviews-display">
+            <h3>Đánh giá của khách hàng</h3>
+            <!-- Reviews will be appended here dynamically -->
+        </div>
+    </div>
+
+    <script>
+        let selectedRating = 0;
+
+        // Set rating based on star clicked
+        function setRating(rating) {
+            selectedRating = rating;
+            const stars = document.querySelectorAll('#rating-stars i');
+            stars.forEach((star, index) => {
+                star.classList.toggle('filled', index < rating);
+            });
+        }
+
+        // Add a new review
+        function addReview(event) {
+            event.preventDefault();
+            
+            // Get the values from the form
+            const name = document.getElementById('name').value;
+            const reviewText = document.getElementById('review').value;
+            const rating = selectedRating;
+
+            if (rating === 0) {
+                alert('Please select a rating');
+                return;
+            }
+
+            // Create a review element
+            const review = document.createElement('div');
+            review.classList.add('review');
+
+            review.innerHTML = `
+                <div class="reviewer-name">${name} - ${getStarIcons(rating)}</div>
+                <p class="review-text">${reviewText}</p>
+            `;
+
+            // Append review to the reviews display
+            document.getElementById('reviews-display').appendChild(review);
+
+            // Reset the form and rating
+            document.getElementById('name').value = '';
+            document.getElementById('review').value = '';
+            setRating(0); // Reset the stars
+        }
+
+        // Helper function to create star icons for display
+        function getStarIcons(rating) {
+            let stars = '';
+            for (let i = 0; i < 5; i++) {
+                stars += `<i class="fa fa-star ${i < rating ? 'filled' : ''}"></i>`;
+            }
+            return stars;
+        }
+    </script>
+</body>
+</html>
