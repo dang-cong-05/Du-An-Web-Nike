@@ -168,12 +168,13 @@ nav .menu-icon .cart-count {
 }
 .content-section {
   padding: 0 40px;
-  margin: 30px auto;
+  margin: 50px auto;
   height: 600px;
 }
 .Latest-section h3{
   padding: 10px 0;
-  font-size: 20px;
+  font-size: 22px;
+  font-weight: 300;
 }
 .new-list {
   width: 100%;
@@ -207,6 +208,28 @@ nav .menu-icon .cart-count {
 .new-nav-btn:hover{
   background-color: #ddd;
   color: #333;
+}
+
+footer {
+  width: 100%;
+  height: 60px;
+  background-color: #ffffff;
+  box-shadow: 0 0 2px #333 ;
+}
+footer > ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style: none;
+}
+footer > ul > li{
+  cursor: pointer;  
+  transition: all .4s ease;
+}
+footer > ul > li:hover {
+  color: #fff;
 }
 @keyframes ShowSlide {
   from {
