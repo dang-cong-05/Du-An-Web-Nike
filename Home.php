@@ -7,7 +7,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-    <link rel="stylesheet" href="/style/home.css" />
+    <link rel="stylesheet" href="/style/home.css"/>
     <link rel="stylesheet" href="/style/modal.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="icon" href="./images/logo_resized_32x32.png" type="image/png">
@@ -22,8 +22,8 @@
           </div>
           <ul class="menu">
             <li><a href="#">Home</a></li>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="product_page.php">Shop</a></li>
+            <li><a href="Contact.php">Contact</a></li>
             <li><a href="#">Service</a></li>
           </ul>
           <div class="search-container">
@@ -34,12 +34,12 @@
             <div class="user-icon">
               <span><i class="fa-solid fa-user"></i></span>
               <div class="dropdown-menu">
-                <a href="#" onclick=" openModal()">Đăng ký</a>
-                <a href="#" onclick=" openModal()">Đăng nhập</a>
+                <a href="#" onclick="openModal()">Đăng ký</a>
+                <a href="#" onclick="openModal()">Đăng nhập</a>
               </div>
             </div>
             <div class="cart-icon">
-              <a href="Cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+              <a href="Cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
               <span class="cart-count">2</span>
             </div>
           </div>
@@ -63,21 +63,21 @@
                 <img src="./images/New-section1.jpg" height="500" width="400" />
                 <div class="new-item-info">
                   <h3 class="new-item-title">Nothing Beats The C1TY</h3>
-                  <a class="new-nav-btn" href="#">Shop Now</a>
+                  <a class="new-nav-btn" href="product_page.php">Shop Now</a>
                 </div>
               </div>
               <div class="new-item" data-aos="fade-down">
                 <img src="./images/New-section3.jpg" height="500" width="400" />
                 <div class="new-item-info">
                   <h3 class="new-item-title">Time</h3>
-                  <a class="new-nav-btn" href="#">Shop Now</a>
+                  <a class="new-nav-btn" href="product_page.php">Shop Now</a>
                 </div>
               </div>
               <div class="new-item" data-aos="fade-left">
                 <img src="./images/New-section2.jpg" height="500" width="400" />
                 <div class="new-item-info">
                   <h3 class="new-item-title">Quality</h3>
-                  <a class="new-nav-btn" href="#">Shop Now</a>
+                  <a class="new-nav-btn" href="product_page.php">Shop Now</a>
                 </div>
               </div>
             </div>
@@ -94,53 +94,53 @@
         </ul>
       </footer>
     </div>
-
     <div class="modal-container" data-aos="fade-down">
       <div class="modal" id="modal">
         <button class="close-button" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
         <div class="form-container sign-up">
-            <form action="#">
+            <form action="#" method="$_POST">
                 <h1>Create Account</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google"></i></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
+
                 <span>or use your email for registration</span>
-                <input type="text" placeholder="Name" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <button>Sign Up</button>
+                <input type="text" placeholder="Name" name="username"/>
+                <input type="email" placeholder="Email" name="email"/>
+                <input type="password" placeholder="Password" name="password_hash" />
+                <button type="submit" name="signup">Sign Up</button>
             </form>
         </div>
   
         <div class="form-container sign-in">
-            <form action="#">
-                <h1>Sign In</h1>
+            <form action="process_login.php" method="$_POST">
+                <h1>Log In</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google"></i></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
                 <span>or use your account</span>
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
+                <input type="email" placeholder="Email" name="email" />
+                <input type="password" placeholder="Password" name="password_hash" />
                 <a href="#">Forgot your password?</a>
-                <button>Sign In</button>
+                <button type="submit" name="login">Log In</button>
             </form>
         </div>
-  
+
         <div class="toggle-container">
             <div class="toggle">
-                <div class="toggle-panel toggle-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected, please login with your personal details.</p>
-                    <button class="ghost" id="signIn">Sign In</button>
-                </div>
                 <div class="toggle-panel toggle-right">
+                    <h1>Welcome Back!</h1>
+                    <p>To continue shopping, Please log in with your personal information.</p>
+                    <button class="ghost" id="register">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-left">
                     <h1>Hello, Friend!</h1>
-                    <p>Enter your details to start your journey with us.</p>
-                    <button class="hidden" id="register">Sign Up</button>
+                    <p>Enter your information to start shopping with us.</p>
+                    <button class="hidden" id="signIn">Sign Up</button>
                 </div>
             </div>
         </div>
