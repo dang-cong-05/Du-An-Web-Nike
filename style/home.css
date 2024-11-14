@@ -10,7 +10,11 @@ a {
 .container {
   width: 1350px;
   margin: 0 auto;
+  display: flex;
+  gap: 20px;
+  flex-direction: row; /* Để xếp hàng ngang */
 }
+
 header {
   height: 70px;
   padding: 5px 10px;
