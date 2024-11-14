@@ -18,9 +18,9 @@
           <img src="/images/Logo.png" />
         </div>
         <ul class="menu">
-          <li><a href="Home.html">Home</a></li>
+          <li><a href="Home.php">Home</a></li>
           <li><a href="#">Shop</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="Contact.php">Contact</a></li>
           <li><a href="#">Service</a></li>
         </ul>
         <div class="search-container">
@@ -93,7 +93,7 @@
     </div>
     <div class="summary-container">
       <h3>Tổng tiền giỏ hàng</h3>
-      <p>Tổng sản phẩm: <span id="total-items">1</span></p>
+      <p style="padding: 12px 0;">Tổng sản phẩm: <span id="total-items">1</span></p>
       <h3 id="grand-total">Tổng Cộng: 8700000đ</h3>
       <button class="buy-now">Thanh Toán</button>
     </div>

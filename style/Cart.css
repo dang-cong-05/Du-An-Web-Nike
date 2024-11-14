@@ -9,7 +9,6 @@
 
 .shopping-cart {
   width: 80%;
-  margin-top: 80px;
 }
 .cart-table {
   width: 95%;
@@ -128,29 +127,35 @@ input[type="number"] {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 205px;
-  height: fit-content; 
+  position: relative;
+  top: 48px;
+  height: 300px; 
 }
 
 .summary-container h3 {
   margin-top: 0;
+  margin-bottom: 10px;
   color: #333;
+  text-transform: capitalize;
 }
-
+#grand-total {
+  padding: 10px 0;
+  margin-top: 60px;
+  border-top: 1px solid #ccc;
+}
 .buy-now {
   background-color: #000000;
   color: #ffffff;
   height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
   border: none;
   text-transform: uppercase;
   border-radius: 5px;
   transition: all 0.2s ease;
   width: 100%;
-  margin-top: 20px;
+  position: absolute;
+  bottom: 20px;
+  margin-top: 50px;
 }
 
 .buy-now:hover {

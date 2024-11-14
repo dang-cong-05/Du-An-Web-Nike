@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details</title>
     <link rel="stylesheet" href="style/product_details.css">
+    <link rel="stylesheet" href="/style/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -14,9 +15,9 @@
                 <img src="./images/Logo.png" alt="Logo">
             </div>
             <ul class="menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Shop</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="Home.php">Home</a></li>
+                <li><a href="product_page.php">Shop</a></li>
+                <li><a href="Contact.php">Contact</a></li>
                 <li><a href="#">Service</a></li>
             </ul>
             <div class="search-container">
@@ -26,6 +27,10 @@
             <div class="menu-icon">
                 <div class="user-icon">
                     <span><i class="fa-solid fa-user"></i></span>
+                    <div class="dropdown-menu">
+                    <a href="#" onclick="openModal()">Đăng ký</a>
+                    <a href="#" onclick="openModal()">Đăng nhập</a>
+                    </div>
                 </div>
                 <div class="cart-icon">
                     <i class="fa-solid fa-cart-shopping"></i>
