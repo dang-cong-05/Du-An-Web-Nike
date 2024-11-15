@@ -6,7 +6,6 @@
     <title>Đánh Giá Sản Phẩm</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* CSS styling for the review page */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -95,27 +94,20 @@
         
         <div class="reviews-display" id="reviews-display">
             <h3>Đánh giá của khách hàng</h3>
-            <!-- Reviews will be appended here dynamically -->
         </div>
     </div>
 
     <script>
         let selectedRating = 0;
-
-        // Set rating based on star clicked
         function setRating(rating) {
             selectedRating = rating;
             const stars = document.querySelectorAll('#rating-stars i');
             stars.forEach((star, index) => {
                 star.classList.toggle('filled', index < rating);
             });
-        }
-
-        // Add a new review
+        }   
         function addReview(event) {
             event.preventDefault();
-            
-            // Get the values from the form
             const name = document.getElementById('name').value;
             const reviewText = document.getElementById('review').value;
             const rating = selectedRating;
@@ -124,8 +116,6 @@
                 alert('Please select a rating');
                 return;
             }
-
-            // Create a review element
             const review = document.createElement('div');
             review.classList.add('review');
 
@@ -133,17 +123,11 @@
                 <div class="reviewer-name">${name} - ${getStarIcons(rating)}</div>
                 <p class="review-text">${reviewText}</p>
             `;
-
-            // Append review to the reviews display
             document.getElementById('reviews-display').appendChild(review);
-
-            // Reset the form and rating
             document.getElementById('name').value = '';
             document.getElementById('review').value = '';
-            setRating(0); // Reset the stars
+            setRating(0); 
         }
-
-        // Helper function to create star icons for display
         function getStarIcons(rating) {
             let stars = '';
             for (let i = 0; i < 5; i++) {
