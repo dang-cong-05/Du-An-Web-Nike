@@ -1,6 +1,6 @@
 <?php
-define('BASE_URL',          'http://localhost/MVC1/');
-define('BASE_URL_ADMIN',    'http://localhost/MVC1/?mode=admin');
+define('BASE_URL',          'http://localhost/Website_Nike');
+define('BASE_URL_ADMIN',    'http://localhost/?mode=admin');
 
 define('PATH_ROOT',         __DIR__ . '/../');
 
