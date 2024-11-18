@@ -19,7 +19,7 @@
       <header>
         <nav>
           <div class="logo">
-            <img src="/images/Logo.png" />
+            <img src="./images/Logo.png" />
           </div>
           <ul class="menu">
             <li><a href="index.php">Home</a></li>
@@ -48,9 +48,9 @@
       </header>
       <div id="slider">
         <div class="slides">
-          <img class="slide" src="/images/Slide-1.jpg" />
-          <img class="slide" src="/images/slide-2.jpg" />
-          <img class="slide" src="/images/slide-3.jpg" />
+          <img class="slide" src="./images/Slide-1.jpg" />
+          <img class="slide" src="./images/slide-2.jpg" />
+          <img class="slide" src="./images/slide-3.jpg" />
         </div>
         <a class="prev" onclick="prevSlide()">&#10094;</a>
         <a class="next" onclick="nextSlide()">&#10095;</a>

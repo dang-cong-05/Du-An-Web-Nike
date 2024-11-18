@@ -150,7 +150,7 @@ spl_autoload_register(function ($class) {
                     <p> 2,299,000₫</p>
                 </div>
                 <div class="product-card" data-category="men brown nike-c1ty">
-                    <img src="images/Nike C1TY.png" alt="Nike C1TY ">
+                    <img src="images/anh4.png" alt="Nike C1TY ">
                     <h2>Nike C1TY </h2>
                     <p> 2,800,000₫</p>
                 </div>
