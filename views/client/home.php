@@ -24,7 +24,7 @@
           <ul class="menu">
             <li><a href="index.php">Home</a></li>
             <li><a href="index.php?action=product_cart">Shop</a></li>
-            <li><a href="Contact.php">Contact</a></li>
+            <li><a href="index.php?action=contact">Contact</a></li>
             <li><a href="#">Service</a></li>
           </ul>
           <div class="search-container">

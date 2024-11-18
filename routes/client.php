@@ -6,7 +6,8 @@ $action = $_GET['action'] ?? '/';
 match ($action) {
     '/'         => (new HomeController)->index(),
     'cart' => (new CartController)->cart(), 
-    'product_cart'=> (new Product_page)->shop()
+    'product_cart'=> (new Product_page)->shop(),
+    'contact'=>(new ContactController)->contact()
 };
 
 ?>
