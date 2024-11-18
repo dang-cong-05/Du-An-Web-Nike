@@ -29,6 +29,7 @@ spl_autoload_register(function ($class) {
     <title>Product Page</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/product_page.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/home.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/modal.css">    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -38,8 +39,8 @@ spl_autoload_register(function ($class) {
                 <img src="./images/Logo.png" alt="Logo">
             </div>
             <ul class="menu">
-                <li><a href="Home.php">Home</a></li>
-                <li><a href="product_page.html">Shop</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="index.php?action=product_cart">Shop</a></li>
                 <li><a href="Contact.php">Contact</a></li>
                 <li><a href="#">Service</a></li>
             </ul>
@@ -56,7 +57,7 @@ spl_autoload_register(function ($class) {
                     </div>
                 </div>
                 <div class="cart-icon">
-                    <i class="fa-solid fa-cart-shopping"></i>
+                    <a href="index.php?action=cart"><i class="fa-solid fa-cart-shopping"></i></a>
                     <span class="cart-count">2</span>
                 </div>
             </div>
@@ -161,6 +162,8 @@ spl_autoload_register(function ($class) {
             </div>
         </main>
     </div>
+    <?php include 'views/component/form_login_singup.php' ?>
+    <script src="./script/modal.js"></script>
     <script src="script/product_page.js"></script>
 </body>
 </html>

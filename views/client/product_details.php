@@ -40,7 +40,7 @@ spl_autoload_register(function ($class) {
             </div>
             <ul class="menu">
                 <li><a href="Home.php">Home</a></li>
-                <li><a href="product_page.php">Shop</a></li>
+                <li><a href="index.php?action=product_cart">Shop</a></li>
                 <li><a href="Contact.php">Contact</a></li>
                 <li><a href="#">Service</a></li>
             </ul>

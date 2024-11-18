@@ -1,8 +1,8 @@
 <?php
 
-class Product_pageController
+class Product_page
 {
-    public function index() 
+    public function shop() 
     {
         require_once PATH_VIEW_CLIENT . 'product_page.php';
     }
