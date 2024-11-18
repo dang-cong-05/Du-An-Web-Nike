@@ -38,7 +38,7 @@ spl_autoload_register(function ($class) {
           </div>
           <ul class="menu">
             <li><a href="Home.php">Home</a></li>
-            <li><a href="#">Shop</a></li>
+            <li><a href="index.php?action=product_cart">Shop</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">Service</a></li>
           </ul>

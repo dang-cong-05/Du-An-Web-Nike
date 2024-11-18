@@ -31,6 +31,7 @@ spl_autoload_register(function ($class) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="<?= BASE_URL ?>/style/Cart.css" />
   <link rel="stylesheet" href="<?= BASE_URL ?>/style/home.css" />
+  <link rel="stylesheet" href="<?= BASE_URL ?>/style/modal.css">
 </head>
 
 <body>
@@ -41,8 +42,8 @@ spl_autoload_register(function ($class) {
           <img src="/images/Logo.png" />
         </div>
         <ul class="menu">
-          <li><a href="Home.php">Home</a></li>
-          <li><a href="#">Shop</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="index.php?action=product_cart">Shop</a></li>
           <li><a href="Contact.php">Contact</a></li>
           <li><a href="#">Service</a></li>
         </ul>
@@ -52,10 +53,14 @@ spl_autoload_register(function ($class) {
         </div>
         <div class="menu-icon">
           <div class="user-icon">
-            <span><i class="fa-solid fa-user"></i></span>
+                  <span><i class="fa-solid fa-user"></i></span>
+                  <div class="dropdown-menu">
+                    <a href="#" onclick="openModal()">Đăng ký</a>
+                    <a href="#" onclick="openModal()">Đăng nhập</a>
+                  </div>
           </div>
           <div class="cart-icon">
-            <a href="Cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="index.php?action=cart"><i class="fa-solid fa-cart-shopping"></i></a>
             <span class="cart-count">2</span>
           </div>
         </div>
@@ -122,6 +127,8 @@ spl_autoload_register(function ($class) {
     </div>
   </div>
   </div>
+  <?php include 'views/component/form_login_singup.php' ?>
   <script src="./script/cart.js"></script>
+  <script src="./script/modal.js"></script>
 </body>
 </html>

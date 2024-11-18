@@ -45,5 +45,7 @@ match ($action) {
     "products-update" =>(new ProductController)->update(),
     "products-delete" =>(new ProductController)->delete(),
 
+    "users-index"=>(new UserController)->index(),
+
 
 };
