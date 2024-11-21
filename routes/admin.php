@@ -12,7 +12,9 @@ $action = $_GET['action'] ?? '/';
 
 match ($action) {
     '/'         => (new DashboardController)->index(),
+
     // 'test-show' => (new TestController)->show(),
+
 
     // 'show-form-login'       => (new AuthenController)->showFormLogin(),
     // 'login'                 => (new AuthenController)->login(),

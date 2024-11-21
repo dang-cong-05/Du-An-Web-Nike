@@ -14,6 +14,7 @@ class Product extends BaseModel
         return $stmt->fetchAll();
     }
 
+
     public function getAll(){
         $sql = "SELECT 
         h.id AS h_id, 

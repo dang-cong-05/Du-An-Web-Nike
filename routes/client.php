@@ -1,9 +1,12 @@
 <?php
+
 require_once PATH_ROOT . "controllers/client/Product_page.php";
+
 
 $action = $_GET['action'] ?? '/';
 
 match ($action) {
+
     // ''         => (new MainController)->index(), 
 
     "/" =>(new HomeController)->index(), // hiện giao diện trang chủ
@@ -15,6 +18,7 @@ match ($action) {
     "cart" =>(new CartController)->index(),
     
         
+
 };
 
 ?>

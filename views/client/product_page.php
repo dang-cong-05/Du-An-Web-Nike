@@ -1,4 +1,69 @@
 
+<?php 
+
+
+session_start();
+
+spl_autoload_register(function ($class) {    
+    $fileName = "$class.php";
+
+    $fileModel              = PATH_MODEL . $fileName;
+    $fileControllerClient   = PATH_CONTROLLER_CLIENT . $fileName;
+    $fileControllerAdmin    = PATH_CONTROLLER_ADMIN . $fileName;
+
+    if (is_readable($fileModel)) {
+        require_once $fileModel;
+    } 
+    else if (is_readable($fileControllerClient)) {
+        require_once $fileControllerClient;
+    }
+    else if (is_readable($fileControllerAdmin)) {
+        require_once $fileControllerAdmin;
+    }
+});
+?> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/product_page.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/home.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/style/modal.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="./images/Logo.png" alt="Logo">
+            </div>
+            <ul class="menu">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="index.php?action=product_cart">Shop</a></li>
+                <li><a href="index.php?action=contact">Contact</a></li>
+                <li><a href="#">Service</a></li>
+            </ul>
+            <div class="search-container">
+                <input type="text" placeholder="Search..." class="search-input">
+                <i class="search-icon fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="menu-icon">
+                <div class="user-icon">
+                    <span><i class="fa-solid fa-user"></i></span>
+                    <div class="dropdown-menu">
+                    <a href="#" onclick="openModal()">Đăng ký</a>
+                    <a href="#" onclick="openModal()">Đăng nhập</a>
+                    </div>
+                </div>
+                <div class="cart-icon">
+                    <a href="index.php?action=cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <span class="cart-count">2</span>
+                </div>
+            </div>
+        </nav>
+    </header> 
 
     <div class="container">
         <aside class="sidebar">
@@ -34,14 +99,12 @@
 
         <main class="main-content">
             <h1>Nike C1TY Collection</h1>
-
             <div class="product-grid">
                 <div class="product-card" data-category="unisex gray nike-c1ty-gray">
                     <img src="images/Nike C1TY 'Surplus'.jpg" alt="Nike C1TY 'Surplus'">
                     <h2>Nike C1TY 'Surplus'</h2>
                     <p>1,100,000₫</p>
                 </div>
-
                 <?php foreach($data as $product): ?>
                 <div class="product-card" data-category="unisex gray nike-c1ty-gray">
                     <?php if(!empty($product['product_image'])) :?>  
@@ -54,6 +117,9 @@
                 <?php endforeach  ?>
 
                 <!-- <div class="product-card" data-category="unisex gray nike-c1ty-gray">
+
+                <div class="product-card" data-category="unisex gray nike-c1ty-gray">
+
                     <img src="images/Nike Air Force 1 Shadow.png" alt="Nike Air Force 1 Shadow">
                     <h2>Nike Air Force 1 Shadow</h2>
                     <p>  2,350,000₫</p>
@@ -107,7 +173,18 @@
                     <img src="images/anh4.png" alt="Nike C1TY Gray">
                     <h2>Nike C1TY Gray</h2>
                     <p> 3,499,000₫</p>
+
                 </div> -->
             </div>
         </main>
     </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+    <?php include 'views/component/form_login_singup.php' ?>
+    <script src="./script/modal.js"></script>
+    <script src="script/product_page.js"></script>
+</body>
+</html>

@@ -12,6 +12,5 @@ class HomeController
         $view = 'home';
         require_once PATH_VIEW_CLIENT_MAIN;
     }
-    
-    
+
 }
