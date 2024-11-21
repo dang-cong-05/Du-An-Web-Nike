@@ -1,3 +1,4 @@
+
 <?php 
 
 
@@ -104,7 +105,21 @@ spl_autoload_register(function ($class) {
                     <h2>Nike C1TY 'Surplus'</h2>
                     <p>1,100,000₫</p>
                 </div>
+                <?php foreach($data as $product): ?>
                 <div class="product-card" data-category="unisex gray nike-c1ty-gray">
+                    <?php if(!empty($product['product_image'])) :?>  
+                    <img src="<?= BASE_ASSETS_UPLOADS . $product['product_image'] ?>" alt="Nike C1TY 'Surplus'" width="200px">
+                    <?php endif; ?>
+                    <h2><?= $product['product_name']?></h2>
+                    <p><?= $product['price']?>₫</p>
+                </div>
+
+                <?php endforeach  ?>
+
+                <!-- <div class="product-card" data-category="unisex gray nike-c1ty-gray">
+
+                <div class="product-card" data-category="unisex gray nike-c1ty-gray">
+
                     <img src="images/Nike Air Force 1 Shadow.png" alt="Nike Air Force 1 Shadow">
                     <h2>Nike Air Force 1 Shadow</h2>
                     <p>  2,350,000₫</p>
@@ -158,6 +173,12 @@ spl_autoload_register(function ($class) {
                     <img src="images/anh4.png" alt="Nike C1TY Gray">
                     <h2>Nike C1TY Gray</h2>
                     <p> 3,499,000₫</p>
+
+                </div> -->
+            </div>
+        </main>
+    </div>
+
                 </div>
             </div>
         </main>

@@ -2,8 +2,9 @@
 
 class ContactController
 {
-    public function contact() 
+  public function index() 
     {
-        require_once PATH_VIEW_CLIENT . 'contact.php';
+        $view = 'contact';
+        require_once PATH_VIEW_CLIENT_MAIN;
     }
 }

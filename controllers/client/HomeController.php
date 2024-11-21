@@ -2,8 +2,15 @@
 
 class HomeController
 {
+    private $category;
+
+    public function __construct() {
+        $this->category = new Category();
+    }
     public function index() 
     {
-        require_once PATH_VIEW_CLIENT . 'home.php';
+        $view = 'home';
+        require_once PATH_VIEW_CLIENT_MAIN;
     }
+
 }

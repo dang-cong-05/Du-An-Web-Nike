@@ -1,3 +1,4 @@
+
 <?php 
 
 
@@ -127,8 +128,10 @@ spl_autoload_register(function ($class) {
     </div>
   </div>
   </div>
+
   <?php include 'views/component/form_login_singup.php' ?>
   <script src="./script/cart.js"></script>
   <script src="./script/modal.js"></script>
 </body>
 </html>
+
