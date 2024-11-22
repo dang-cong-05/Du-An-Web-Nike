@@ -1,9 +1,17 @@
 <?php
 
-class Product_page
-{
-    public function shop() 
+class Product_pageController
+{   
+
+    private $product;
+
+    public function __construct() {
+        $this->product = new Product();
+    }
+    public function index() 
     {
-        require_once PATH_VIEW_CLIENT . 'product_page.php';
+        $view = 'product_page';
+        $data = $this->product->getTop16Latest();
+        require_once PATH_VIEW_CLIENT_MAIN;
     }
 }

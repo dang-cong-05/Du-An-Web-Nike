@@ -12,7 +12,9 @@ $action = $_GET['action'] ?? '/';
 
 match ($action) {
     '/'         => (new DashboardController)->index(),
-    'test-show' => (new TestController)->show(),
+
+    // 'test-show' => (new TestController)->show(),
+
 
     // 'show-form-login'       => (new AuthenController)->showFormLogin(),
     // 'login'                 => (new AuthenController)->login(),
@@ -46,6 +48,12 @@ match ($action) {
     "products-delete" =>(new ProductController)->delete(),
 
     "users-index"=>(new UserController)->index(),
+    "users-create"=>(new UserController)->create(),
+    "users-store"=>(new UserController)->store(),
+    "users-show"=>(new UserController)->show(),
+    "users-edit"=>(new UserController)->edit(),
+    "users-update"=>(new UserController)->update(),
+    "users-delete"=>(new UserController)->delete(),
 
 
 };

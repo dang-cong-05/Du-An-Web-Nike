@@ -4,7 +4,16 @@ class Product extends BaseModel
 {
     protected $table = 'products';
 
-    
+    public function getTop16Latest() {
+        $sql = "SELECT * FROM {$this->table} ORDER BY id DESC LIMIT 0,16";
+
+        $stmt = $this->pdo->prepare($sql);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
 
     public function getAll(){
         $sql = "SELECT 

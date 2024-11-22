@@ -1,27 +1,3 @@
-<?php 
-
-
-session_start();
-
-spl_autoload_register(function ($class) {    
-    $fileName = "$class.php";
-
-    $fileModel              = PATH_MODEL . $fileName;
-    $fileControllerClient   = PATH_CONTROLLER_CLIENT . $fileName;
-    $fileControllerAdmin    = PATH_CONTROLLER_ADMIN . $fileName;
-
-    if (is_readable($fileModel)) {
-        require_once $fileModel;
-    } 
-    else if (is_readable($fileControllerClient)) {
-        require_once $fileControllerClient;
-    }
-    else if (is_readable($fileControllerAdmin)) {
-        require_once $fileControllerAdmin;
-    }
-});
-?> 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,36 +9,6 @@ spl_autoload_register(function ($class) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="./images/Logo.png" alt="Logo">
-            </div>
-            <ul class="menu">
-                <li><a href="Home.php">Home</a></li>
-                <li><a href="index.php?action=product_cart">Shop</a></li>
-                <li><a href="Contact.php">Contact</a></li>
-                <li><a href="#">Service</a></li>
-            </ul>
-            <div class="search-container">
-                <input type="text" placeholder="Search..." class="search-input">
-                <i class="search-icon fa-solid fa-magnifying-glass"></i>
-            </div>
-            <div class="menu-icon">
-                <div class="user-icon">
-                    <span><i class="fa-solid fa-user"></i></span>
-                    <div class="dropdown-menu">
-                    <a href="#" onclick="openModal()">Đăng ký</a>
-                    <a href="#" onclick="openModal()">Đăng nhập</a>
-                    </div>
-                </div>
-                <div class="cart-icon">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span class="cart-count">2</span>
-                </div>
-            </div>
-        </nav>
-    </header> 
 
     <main class="product-container">
         <div class="gallery">
@@ -111,10 +57,10 @@ spl_autoload_register(function ($class) {
             <button class="wishlist">Yêu Thích &#9825;</button>
 
             <div class="product-description">
-                <p>Nike C1TY được thiết kế để vượt qua mọi thứ mà thành phố mang đến cho bạn. 
+                <p>Nike C1TY được thiết kế để vượt qua mọi thứ mà thành phố mang đến cho bạn.
                     Thân giày bằng lưới giúp vừa vặn, thoáng khí, trong khi phần hông và mũi giày được
                     gia cố giúp bảo vệ đôi chân của bạn khỏi các yếu tố thời tiết. Phiên bản 'Brownstone' này
-                    lấy cảm hứng từ màu sắc của thiết kế kiến trúc mang tính biểu tượng—mang đến cho phong 
+                    lấy cảm hứng từ màu sắc của thiết kế kiến trúc mang tính biểu tượng—mang đến cho phong
                     cách đường phố một ý nghĩa hoàn toàn mới.</p>
                 <ul>
                     <li>Màu sắc hiển thị: Màu sữa / Đen / Đỏ</li>
@@ -134,15 +80,15 @@ spl_autoload_register(function ($class) {
                     <p>Xem đánh giá của khách hàng...</p>
                 </div>
             </div>
-            
+
         </div>
-        
+
     </main>
 
     <script>
-        function changeImage(src) {
-            document.getElementById("display-image").src = src;
-        }
+    function changeImage(src) {
+        document.getElementById("display-image").src = src;
+    }
     </script>
 </body>
 </html>

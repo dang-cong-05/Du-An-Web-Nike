@@ -1,12 +1,30 @@
 <?php
-// require_once PATH_ROOT . "controllers/client/Product_page.php";
+
+require_once PATH_ROOT . "controllers/client/Product_page.php";
+
 
 $action = $_GET['action'] ?? '/';
 
 match ($action) {
-    '/'         => (new HomeController)->index(),
-    'cart' => (new CartController)->cart(), 
-    'product_cart'=> (new Product_page)->shop()
+
+    // ''         => (new MainController)->index(), 
+
+    "/" =>(new HomeController)->index(), // hiện giao diện trang chủ
+    
+    "register"=>(new AuthenController)->register(),
+
+    // "login"=>(new AuthenController)->signin(),
+    
+    "product_page" =>(new Product_pageController)->index(),
+
+    // "product_cart" =>(new CartController)->index(),
+
+    "contact"=>(new ContactController)->index(),
+
+    "cart" =>(new CartController)->index(),
+    
+        
+
 };
 
 ?>

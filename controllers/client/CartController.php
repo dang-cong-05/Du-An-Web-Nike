@@ -1,8 +1,10 @@
 <?php
 class CartController
 {
-    public function cart() 
+    public function index() 
     {
-        require_once PATH_VIEW_CLIENT . 'cart.php';
+        $view = 'cart';
+        require_once PATH_VIEW_CLIENT_MAIN;
     }
+
 }

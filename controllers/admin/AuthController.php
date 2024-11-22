@@ -1,6 +1,6 @@
 <?php
 
-class AuthenController
+class AuthController
 {
     private $user;
 
