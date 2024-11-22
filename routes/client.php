@@ -11,7 +11,13 @@ match ($action) {
 
     "/" =>(new HomeController)->index(), // hiện giao diện trang chủ
     
+    "register"=>(new AuthenController)->register(),
+
+    // "login"=>(new AuthenController)->signin(),
+    
     "product_page" =>(new Product_pageController)->index(),
+
+    // "product_cart" =>(new CartController)->index(),
 
     "contact"=>(new ContactController)->index(),
 

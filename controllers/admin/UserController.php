@@ -27,7 +27,7 @@ class UserController
                 throw new Exception('Thiếu tham số "id"', 99);
             }
 
-            $id = $_GET['id'];-
+            $id = $_GET['id'];
 
             $user = $this->user->find('*', 'id = :id', ['id' => $id]);
 
@@ -89,18 +89,18 @@ class UserController
                 $_SESSION['errors']['password'] = 'Trường password bắt buộc, độ dài trong khoảng từ 6 đến 30 ký tự.';
             }
             
-            if ($data['avatar']['size'] > 0) {
+            // if ($data['avatar']['size'] > 0) {
 
-                if ($data['avatar']['size'] > 2 * 1024 * 1024) {
-                    $_SESSION['errors']['avatar_size'] = 'Trường avatar có dung lượng tối đa 2MB';
-                }
+            //     if ($data['avatar']['size'] > 2 * 1024 * 1024) {
+            //         $_SESSION['errors']['avatar_size'] = 'Trường avatar có dung lượng tối đa 2MB';
+            //     }
                 
-                $fileType = $data['avatar']['type'];
-                $allowedTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
-                if (!in_array($fileType, $allowedTypes)) {
-                    $_SESSION['errors']['avatar_type'] = 'Xin lỗi, chỉ chấp nhận các loại file JPG, JPEG, PNG, GIF.';
-                }
-            }
+            //     $fileType = $data['avatar']['type'];
+            //     $allowedTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
+            //     if (!in_array($fileType, $allowedTypes)) {
+            //         $_SESSION['errors']['avatar_type'] = 'Xin lỗi, chỉ chấp nhận các loại file JPG, JPEG, PNG, GIF.';
+            //     }
+            // }
             
             if (!empty($_SESSION['errors'])) {
 
@@ -109,11 +109,11 @@ class UserController
                 throw new Exception('Dữ liệu lỗi!');
             }
 
-            if ($data['avatar']['size'] > 0) {
-                $data['avatar'] = upload_file('users', $data['avatar']);
-            } else {
-                $data['avatar'] = null;
-            }
+            // if ($data['avatar']['size'] > 0) {
+            //     $data['avatar'] = upload_file('users', $data['avatar']);
+            // } else {
+            //     $data['avatar'] = null;
+            // }
             
             $rowCount = $this->user->insert($data);
 
@@ -203,48 +203,48 @@ class UserController
                 $_SESSION['errors']['password'] = 'Trường password bắt buộc, độ dài trong khoảng từ 6 đến 30 ký tự.';
             }
 
-            if ($data['avatar']['size'] > 0) {
+            // if ($data['avatar']['size'] > 0) {
 
-                if ($data['avatar']['size'] > 2 * 1024 * 1024) {
-                    $_SESSION['errors']['avatar_size'] = 'Trường avatar có dung lượng tối đa 2MB';
-                }
+            //     if ($data['avatar']['size'] > 2 * 1024 * 1024) {
+            //         $_SESSION['errors']['avatar_size'] = 'Trường avatar có dung lượng tối đa 2MB';
+            //     }
 
-                $fileType = $data['avatar']['type'];
-                $allowedTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
-                if (!in_array($fileType, $allowedTypes)) {
-                    $_SESSION['errors']['avatar_type'] = 'Xin lỗi, chỉ chấp nhận các loại file JPG, JPEG, PNG, GIF.';
-                }
-            }
+            //     $fileType = $data['avatar']['type'];
+            //     $allowedTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
+            //     if (!in_array($fileType, $allowedTypes)) {
+            //         $_SESSION['errors']['avatar_type'] = 'Xin lỗi, chỉ chấp nhận các loại file JPG, JPEG, PNG, GIF.';
+            //     }
+            // }
 
             if (!empty($_SESSION['errors'])) {
                 throw new Exception('Dữ liệu lỗi!');
             }
 
-            if ($data['avatar']['size'] > 0) {
-                $data['avatar'] = upload_file('users', $data['avatar']);
-            } else {
-                $data['avatar'] = $user['avatar'];
-            }
+            // if ($data['avatar']['size'] > 0) {
+            //     $data['avatar'] = upload_file('users', $data['avatar']);
+            // } else {
+            //     $data['avatar'] = $user['avatar'];
+            // }
 
             $data['updated_at'] = date('Y-m-d H:i:s');
 
             $rowCount = $this->user->update($data, 'id = :id', ['id' => $id]);
 
-            if ($rowCount > 0) {
+            // if ($rowCount > 0) {
 
-                if (
-                    $_FILES['avatar']['size'] > 0
-                    && !empty($user['avatar'])
-                    && file_exists(PATH_ASSETS_UPLOADS . $user['avatar'])
-                ) {
-                    unlink(PATH_ASSETS_UPLOADS . $user['avatar']);
-                }
+            //     if (
+            //         $_FILES['avatar']['size'] > 0
+            //         && !empty($user['avatar'])
+            //         && file_exists(PATH_ASSETS_UPLOADS . $user['avatar'])
+            //     ) {
+            //         unlink(PATH_ASSETS_UPLOADS . $user['avatar']);
+            //     }
 
-                $_SESSION['success'] = true;
-                $_SESSION['msg'] = 'Thao tác thành công!';
-            } else {
-                throw new Exception('Thao tác KHÔNG thành công!');
-            }
+            //     $_SESSION['success'] = true;
+            //     $_SESSION['msg'] = 'Thao tác thành công!';
+            // } else {
+            //     throw new Exception('Thao tác KHÔNG thành công!');
+            // }
         } catch (\Throwable $th) {
             $_SESSION['success'] = false;
             $_SESSION['msg'] = $th->getMessage() . ' - Line: ' . $th->getLine();

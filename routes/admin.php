@@ -48,6 +48,12 @@ match ($action) {
     "products-delete" =>(new ProductController)->delete(),
 
     "users-index"=>(new UserController)->index(),
+    "users-create"=>(new UserController)->create(),
+    "users-store"=>(new UserController)->store(),
+    "users-show"=>(new UserController)->show(),
+    "users-edit"=>(new UserController)->edit(),
+    "users-update"=>(new UserController)->update(),
+    "users-delete"=>(new UserController)->delete(),
 
 
 };
