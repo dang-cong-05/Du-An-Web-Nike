@@ -16,7 +16,6 @@
                 <span>or use your email for registration</span>
                 <input type="text" placeholder="Name" name="username" />
 
-
                 <input type="email" placeholder="Email" name="email" />
 
                 <input type="password" placeholder="Password" name="password" />

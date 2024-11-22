@@ -1,8 +1,8 @@
 <div id="slider">
     <div class="slides">
-        <img class="slide" src="<?= BASE_URL ?>/images/Slide-1.jpg" />
-        <img class="slide" src="<?= BASE_URL ?>/images/Slide-2.jpg" />
-        <img class="slide" src="<?= BASE_URL ?>/images/Slide-3.jpg" />
+        <img class="slide" src="./images/Slide-1.jpg" />
+        <img class="slide" src="./images/Slide-2.jpg" />
+        <img class="slide" src="./images/Slide-3.jpg" />
     </div>
     <a class="prev" onclick="prevSlide()">&#10094;</a>
     <a class="next" onclick="nextSlide()">&#10095;</a>
@@ -16,30 +16,43 @@
                     <img src="./images/New-section1.jpg" height="500" width="400" />
                     <div class="new-item-info">
                         <h3 class="new-item-title">Nothing Beats The C1TY</h3>
-                        <a class="new-nav-btn" href="product_page.php">Shop Now</a>
+                        <a class="new-nav-btn" href="index.php?action=product_page">Shop Now</a>
                     </div>
                 </div>
                 <div class="new-item" data-aos="fade-down">
                     <img src="./images/New-section3.jpg" height="500" width="400" />
                     <div class="new-item-info">
                         <h3 class="new-item-title">Time</h3>
-                        <a class="new-nav-btn" href="product_page.php">Shop Now</a>
+                        <a class="new-nav-btn" href="index.php?action=product_page">Shop Now</a>
                     </div>
                 </div>
                 <div class="new-item" data-aos="fade-left">
                     <img src="./images/New-section2.jpg" height="500" width="400" />
                     <div class="new-item-info">
                         <h3 class="new-item-title">Quality</h3>
-                        <a class="new-nav-btn" href="product_page.php">Shop Now</a>
+                        <a class="new-nav-btn" href="index.php?action=product_page">Shop Now</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <section class="more-section">
+        <div class="more-info">
+            <div class="title-info" data-aos="fade-down-right">
+                <h2>About Us</h2>
+                <p>
+                    Welcome to NFA - Nike Fashion Authentic , your ultimate destination for authentic and trendy Nike
+                    sneakers.
+                    We are committed to providing you with a seamless shopping experience, offering top-quality
+                    products,
+                    innovative designs, and unmatched comfort for every lifestyle. Explore our latest collections and
+                    step into
+                    a world of style and performance with Nike!
+                </p>
+            </div>
+            <div class="images-info" data-aos="fade-up-left">
+                <img src="./images/more-item1.jpg" alt="">
+            </div>
+        </div>
+    </section>
 </main>
-
-</div>
-
-</body>
-
-</html>
