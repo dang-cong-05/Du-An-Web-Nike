@@ -56,7 +56,7 @@
 
             <?php endforeach  ?>
 
-            <!-- <div class="product-card" data-category="unisex gray nike-c1ty-gray">
+            <div class="product-card" data-category="unisex gray nike-c1ty-gray">
 
                 <div class="product-card" data-category="unisex gray nike-c1ty-gray">
 
@@ -114,7 +114,7 @@
                     <h2>Nike C1TY Gray</h2>
                     <p> 3,499,000₫</p>
 
-                </div> -->
+                </div>
         </div>
     </main>
 </div>
