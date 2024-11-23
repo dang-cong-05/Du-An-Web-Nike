@@ -47,10 +47,8 @@
                         $errors['password'] = "Mật khẩu phải chứa ít nhất một ký tự đặc biệt (@$!%*?&).";
                     }
                     if (!empty($errors)) {
-                        foreach ($errors as $error) {
-                            echo "<p style='color: red;'>$error</p>";
-                        }
-                        return;
+                        $_SESSION['error']="Đăng ký Thất Bại";
+                        header('Location: /');
                     }
 
                     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
@@ -66,21 +64,60 @@
                     
                     try {
                         $this->auth->insert($data);
-                        $_SESSION['message'] = 'Đăng ký thành công!';
-                        header('Location: /');
+                        $_SESSION['register_sucsess'] = 'Đăng ký thành công!';
+                        header('Location: index.php?action=/');
                     } catch (PDOException $e) {
-                        echo "<p style='color: red;'>Lỗi khi thêm dữ liệu: " . $e->getMessage() . "</p>";
+                        $errors['general'] = "Lỗi khi thêm dữ liệu: " . $e->getMessage();
                     }
                 }
                 
-                return [];
-            }            
+                return $errors ?? [];
+            } 
 
         }
 
         public function signin()
         {
-            
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
+                $email = trim($_POST['email']);
+                $password = trim($_POST['password']);
+    
+                $errors = [];
+    
+                if (empty($email)) {
+                    $errors['email'] = "Email không được để trống.";
+                }
+                if (empty($password)) {
+                    $errors['password'] = "Mật khẩu không được để trống.";
+                }
+    
+                if (!empty($errors)) {
+                    return $errors;
+                }
+    
+                // Kiểm tra đăng nhập
+                $user = $this->auth->find('*', 'email = ?', [$email]);
+                
+                if ($user && password_verify($password, $user['password'])) {
+                    $_SESSION['user'] = $user['name'];
+                    $_SESSION['login_sucsess'] = 'WelCome,' . htmlspecialchars($user['name']);
+                    header('Location: /');
+                    
+                    exit();
+                } else {
+                    header('Location: index.php?action=/');
+                    exit();
+                }
+    
+                return $errors;
+            }
+        }
+
+        public function logout(){
+            session_destroy();  // hủy session trên máy chủ bao gồm cả session ID.
+
+            header('Location: ' . BASE_URL);
+            exit();
         }
     }
 ?>

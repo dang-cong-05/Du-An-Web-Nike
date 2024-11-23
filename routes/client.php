@@ -13,7 +13,9 @@ match ($action) {
     
     "register"=>(new AuthenController)->register(),
 
-    // "login"=>(new AuthenController)->signin(),
+    "login"=>(new AuthenController)->signin(),
+
+    "logout"=>(new AuthenController)->logout(),
     
     "product_page" =>(new Product_pageController)->index(),
 
