@@ -157,6 +157,8 @@ class ProductController
         
             
         }
+        header('Location: ' . BASE_URL_ADMIN . '&action=products-index');
+        exit();
     }
 
 

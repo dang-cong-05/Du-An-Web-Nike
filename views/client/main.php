@@ -12,12 +12,43 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/product_page.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/Contact.css">
   <link rel="stylesheet" href="<?= BASE_URL ?>/style/Cart.css" />
-    
+  <link rel="stylesheet" href="<?= BASE_URL ?>/style/product_details.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/home.css"/>
     <link rel="stylesheet" href="<?= BASE_URL ?>/style/modal.css">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="icon" href="./images/logo_resized_32x32.png" type="image/png">
+    <style>
+    /* Chỉ áp dụng cho select */
+    #category {
+      border: none;
+        /* border: 1px solid #ccc; */
+        border-radius: 20px;
+        padding: 8px 12px;
+        font-size: 14px;
+        outline: none;
+        height: 40px;
+        box-sizing: border-box;
+        appearance: none; /* Ẩn mũi tên mặc định */
+        -moz-appearance: none; /* Firefox */
+        -webkit-appearance: none; /* Chrome/Safari */
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='none' d='M0 0h20v20H0z'/%3E%3Cpath d='M6 8l4 4 4-4z' fill='%23999'/%3E%3C/svg%3E")
+            no-repeat right 10px center;
+        background-size: 12px;
+        cursor: pointer;
+    }
+
+    /* Hiệu ứng khi rê chuột */
+    #category:hover {
+        border-color: #007BFF;
+    }
+
+    /* Điều chỉnh cho khoảng cách nội dung không tràn */
+    #category option {
+        padding: 5px;
+    }
+</style>
+
     <title>NFA - Nike Fashion Authentic!</title>
   </head>
   <body>
@@ -35,15 +66,28 @@
           </ul>
 
           <form action="?action=search" method="post">
-               
-             
-          
+    <div class="search-container">
+        <select name="category" id="category" >
+            <option value="">ALL CATEGORIES</option>
+            <?php if (isset($data['categories']) && count($data['categories']) > 0): ?>
+                <?php foreach ($data['categories'] as $category): ?>
+                    <option value="<?= htmlspecialchars($category['id']) ?>" 
+                        <?= isset($_POST['category']) && $_POST['category'] == $category['id'] ? 'selected' : '' ?>>
+                        <?= htmlspecialchars($category['category_name']) ?>
+                    </option>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </select>
+        <input type="text" placeholder="Search..." class="search-input" name="keyword" 
+            value="<?= isset($_POST['keyword']) ? htmlspecialchars($_POST['keyword']) : '' ?>" />
+        <button type="submit" name="timkiem">
+            <i class="search-icon fa-solid fa-magnifying-glass"></i>
+        </button>
+    </div>
+</form>
 
-          <div class="search-container">
-            <input type="text" placeholder="Search..." class="search-input" name="keyword" />
-           <button type="submit" name="timkiem"><i class="search-icon fa-solid fa-magnifying-glass"></i></button> 
-           </div>
-          </form>
+
+
 
           <div class="menu-icon">
             <div class="user-icon">
