@@ -1,36 +1,42 @@
+<div class="container">
+    <aside class="sidebar">
+        <h2>Phong Cách</h2>
+        <div class="filter-section">
+            <h3>Giới Tính</h3>
+            <label><input type="checkbox" class="filter-checkbox" data-filter="men"> Đàn Ông</label><br>
+            <label><input type="checkbox" class="filter-checkbox" data-filter="women"> Phụ Nữ</label><br>
+            <label><input type="checkbox" class="filter-checkbox" data-filter="unisex">Không Phân Biệt Giới
+                Tính</label>
+        </div>
+        <div class="filter-section">
+            <h3>Màu Sắc</h3>
+            <label><input type="checkbox" class="filter-checkbox" data-filter="black">Màu Đen</label><br>
+            <label><input type="checkbox" class="filter-checkbox" data-filter="blue">Màu Xanh Dương</label><br>
+            <label><input type="checkbox" class="filter-checkbox" data-filter="brown">Màu Nâu</label><br>
+            <label><input type="checkbox" class="filter-checkbox" data-filter="green">Màu Xanh</label><br>
+            <label><input type="checkbox" class="filter-checkbox" data-filter="gray">Màu Trắng</label>
+        </div>
+        <div class="filter-section">
+            <h3>Bộ Sưu Tập</h3>
+            <label><input type="checkbox" class="filter-checkbox" data-filter="nike-c1ty-black"> Nike C1TY
+                Black</label><br>
+            <label><input type="checkbox" class="filter-checkbox" data-filter="nike-c1ty-blue"> Nike C1TY
+                Blue</label><br>
+            <label><input type="checkbox" class="filter-checkbox" data-filter="nike-c1ty-brown"> Nike C1TY
+                Brown</label><br>
+            <label><input type="checkbox" class="filter-checkbox" data-filter="nike-c1ty-green"> Nike C1TY
+                Green</label><br>
+            <label><input type="checkbox" class="filter-checkbox" data-filter="nike-c1ty-gray"> Nike C1TY
+                Gray</label>
+        </div>
+        <div class="filter-section">
+            <h3>Chiều Cao Giày</h3>
+            <label><input type="checkbox" class="filter-checkbox" data-filter="nike-c1ty-black">Cổ Thấp</label><br>
+            <label><input type="checkbox" class="filter-checkbox" data-filter="nike-c1ty-blue">Cổ Cao</label><br>
+        </div>
+    </aside>
 
 
-    <div class="container">
-        <aside class="sidebar">
-            <h2>Phong Cách</h2>
-            <div class="filter-section">
-                <h3>Giới Tính</h3>
-                <label><input type="checkbox" class="filter-checkbox" data-filter="men"> Đàn Ông</label><br>
-                <label><input type="checkbox" class="filter-checkbox" data-filter="women"> Phụ Nữ</label><br>
-                <label><input type="checkbox" class="filter-checkbox" data-filter="unisex">Không Phân Biệt Giới Tính</label>
-            </div>
-            <div class="filter-section">
-                <h3>Màu Sắc</h3>
-                <label><input type="checkbox" class="filter-checkbox" data-filter="black">Màu Đen</label><br>
-                <label><input type="checkbox" class="filter-checkbox" data-filter="blue">Màu Xanh Dương</label><br>
-                <label><input type="checkbox" class="filter-checkbox" data-filter="brown">Màu Nâu</label><br>
-                <label><input type="checkbox" class="filter-checkbox" data-filter="green">Màu Xanh</label><br>
-                <label><input type="checkbox" class="filter-checkbox" data-filter="gray">Màu Trắng</label>
-            </div>
-            <div class="filter-section">
-                <h3>Bộ Sưu Tập</h3>
-                <label><input type="checkbox" class="filter-checkbox" data-filter="nike-c1ty-black"> Nike C1TY Black</label><br>
-                <label><input type="checkbox" class="filter-checkbox" data-filter="nike-c1ty-blue"> Nike C1TY Blue</label><br>
-                <label><input type="checkbox" class="filter-checkbox" data-filter="nike-c1ty-brown"> Nike C1TY Brown</label><br>
-                <label><input type="checkbox" class="filter-checkbox" data-filter="nike-c1ty-green"> Nike C1TY Green</label><br>
-                <label><input type="checkbox" class="filter-checkbox" data-filter="nike-c1ty-gray"> Nike C1TY Gray</label>
-            </div>
-            <div class="filter-section">
-                <h3>Chiều Cao Giày</h3>
-                <label><input type="checkbox" class="filter-checkbox" data-filter="nike-c1ty-black">Cổ Thấp</label><br>
-                <label><input type="checkbox" class="filter-checkbox" data-filter="nike-c1ty-blue">Cổ Cao</label><br>
-            </div>
-        </aside>
 
         <main class="main-content">
             <h1>Nike C1TY Collection</h1>
@@ -64,10 +70,13 @@
 
 
 
+        
+
 
 
             </div>
         </main>
     </div>
 
-        
+
+   

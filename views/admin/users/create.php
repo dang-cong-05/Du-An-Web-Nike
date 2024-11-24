@@ -11,19 +11,19 @@ if (isset($_SESSION['success'])) {
 
 <?php if (!empty($_SESSION['errors'])): ?>
 
-    <div class="alert alert-danger">
+<div class="alert alert-danger">
 
-        <ul>
-            <?php foreach ($_SESSION['errors'] as $value): ?>
+    <ul>
+        <?php foreach ($_SESSION['errors'] as $value): ?>
 
-                <li> <?= $value ?> </li>
+        <li> <?= $value ?> </li>
 
-            <?php endforeach; ?>
-        </ul>
+        <?php endforeach; ?>
+    </ul>
 
-    </div>
+</div>
 
-    <?php unset($_SESSION['errors']); ?>
+<?php unset($_SESSION['errors']); ?>
 
 <?php endif; ?>
 
@@ -40,10 +40,6 @@ if (isset($_SESSION['success'])) {
     <div class="mb-3">
         <label for="password" class="form-label">Password:</label>
         <input type="text" class="form-control" id="password" name="password">
-    </div>
-    <div class="mb-3">
-        <label for="avatar" class="form-label">Avatar:</label>
-        <input type="file" class="form-control" id="avatar" name="avatar">
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
