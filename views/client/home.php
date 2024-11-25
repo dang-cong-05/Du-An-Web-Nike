@@ -1,15 +1,17 @@
-<div id="slider">
-    <div class="slides">
-        <img class="slide" src="./images/Slide-1.jpg" />
-        <img class="slide" src="./images/Slide-2.jpg" />
-        <img class="slide" src="./images/Slide-3.jpg" />
-    </div>
-    <a class="prev" onclick="prevSlide()">&#10094;</a>
-    <a class="next" onclick="nextSlide()">&#10095;</a>
-</div>
-<main>
-    <section class="content-section">
-        <div class="Latest-section">
+
+
+      <div id="slider">
+        <div class="slides">
+          <img class="slide" src="/images/Slide-1.jpg" />
+          <img class="slide" src="/images/slide-2.jpg" />
+          <img class="slide" src="/images/slide-3.jpg" />
+        </div>
+        <a class="prev" onclick="prevSlide()">&#10094;</a>
+        <a class="next" onclick="nextSlide()">&#10095;</a>
+      </div>
+      <main>
+        <section class="content-section">
+          <div class="Latest-section">
             <h3>The Latest</h3>
             <div class="new-list">
                 <div class="new-item" data-aos="fade-right">
@@ -53,6 +55,8 @@
             <div class="images-info" data-aos="fade-up-left">
                 <img src="./images/more-item1.jpg" alt="">
             </div>
-        </div>
-    </section>
-</main>
+          </div>
+        </section>
+      </main>
+     
+    
