@@ -226,25 +226,25 @@ class UserController
             //     $data['avatar'] = $user['avatar'];
             // }
 
-            $data['updated_at'] = date('Y-m-d H:i:s');
+            // $data['updated_at'] = date('Y-m-d H:i:s');
 
             $rowCount = $this->user->update($data, 'id = :id', ['id' => $id]);
 
-            // if ($rowCount > 0) {
+            if ($rowCount > 0) {
 
-            //     if (
-            //         $_FILES['avatar']['size'] > 0
-            //         && !empty($user['avatar'])
-            //         && file_exists(PATH_ASSETS_UPLOADS . $user['avatar'])
-            //     ) {
-            //         unlink(PATH_ASSETS_UPLOADS . $user['avatar']);
-            //     }
+                // if (
+                //     $_FILES['avatar']['size'] > 0
+                //     && !empty($user['avatar'])
+                //     && file_exists(PATH_ASSETS_UPLOADS . $user['avatar'])
+                // ) {
+                //     unlink(PATH_ASSETS_UPLOADS . $user['avatar']);
+                // }
 
-            //     $_SESSION['success'] = true;
-            //     $_SESSION['msg'] = 'Thao tác thành công!';
-            // } else {
-            //     throw new Exception('Thao tác KHÔNG thành công!');
-            // }
+                $_SESSION['success'] = true;
+                $_SESSION['msg'] = 'Thao tác thành công!';
+            } else {
+                throw new Exception('Thao tác KHÔNG thành công!');
+            }
         } catch (\Throwable $th) {
             $_SESSION['success'] = false;
             $_SESSION['msg'] = $th->getMessage() . ' - Line: ' . $th->getLine();
@@ -279,9 +279,9 @@ class UserController
 
             if ($rowCount > 0) {
 
-                if (!empty($user['avatar']) && file_exists(PATH_ASSETS_UPLOADS . $user['avatar'])) {
-                    unlink(PATH_ASSETS_UPLOADS . $user['avatar']);
-                }
+                // if (!empty($user['avatar']) && file_exists(PATH_ASSETS_UPLOADS . $user['avatar'])) {
+                //     unlink(PATH_ASSETS_UPLOADS . $user['avatar']);
+                // }
 
                 $_SESSION['success'] = true;
                 $_SESSION['msg'] = 'Thao tác thành công!';

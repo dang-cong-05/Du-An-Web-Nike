@@ -3,6 +3,7 @@
 class Product extends BaseModel
 {
     protected $table = 'products';
+    
 
     public function getTop16Latest() {
         $sql = "SELECT * FROM {$this->table} ORDER BY id DESC LIMIT 0,16";
@@ -63,4 +64,41 @@ WHERE h.id = :id"
     return $stmt->fetch();
     
      }
+
+     
+     public function searchProductInCategory($keyword, $cate_id) {
+        try {
+            // Xây dựng câu truy vấn
+            $sql = "SELECT * 
+                    FROM products p 
+                    JOIN categories c ON p.category_id = c.id 
+                    WHERE p.product_name LIKE :keyword";
+            
+            // Nếu người dùng chọn danh mục, thêm điều kiện lọc
+            if (!empty($cate_id)) {
+                $sql .= " AND p.category_id = :cate_id";
+            }
+    
+            // Chuẩn bị câu truy vấn
+            $stmt = $this->pdo->prepare($sql);
+    
+            // Liên kết giá trị vào tham số truy vấn
+            $stmt->bindValue(':keyword', '%' . $keyword . '%', PDO::PARAM_STR);
+            if (!empty($cate_id)) {
+                $stmt->bindValue(':cate_id', $cate_id, PDO::PARAM_INT);
+            }
+    
+            // Thực thi truy vấn
+            $stmt->execute();
+    
+            // Trả về kết quả
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            error_log($e->getMessage());
+            return [];
+        }
+    }
+
+
+    
 }

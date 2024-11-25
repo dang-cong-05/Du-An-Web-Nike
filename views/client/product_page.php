@@ -5,8 +5,7 @@
             <h3>Giới Tính</h3>
             <label><input type="checkbox" class="filter-checkbox" data-filter="men"> Đàn Ông</label><br>
             <label><input type="checkbox" class="filter-checkbox" data-filter="women"> Phụ Nữ</label><br>
-            <label><input type="checkbox" class="filter-checkbox" data-filter="unisex">Không Phân Biệt Giới
-                Tính</label>
+            <label><input type="checkbox" class="filter-checkbox" data-filter="unisex">Không Phân Biệt Giới Tính</label>
         </div>
         <div class="filter-section">
             <h3>Màu Sắc</h3>
@@ -36,27 +35,30 @@
         </div>
     </aside>
 
-    <main class="main-content">
-        <h1>Nike C1TY Collection</h1>
-        <div class="product-grid">
-            <div class="product-card" data-category="unisex gray nike-c1ty-gray">
-                <img src="images/Nike C1TY 'Surplus'.jpg" alt="Nike C1TY 'Surplus'">
-                <h2>Nike C1TY 'Surplus'</h2>
-                <p>1,100,000₫</p>
-            </div>
-            <?php foreach($data as $product): ?>
-            <div class="product-card" data-category="unisex gray nike-c1ty-gray">
-                <?php if(!empty($product['product_image'])) :?>
-                <img src="<?= BASE_ASSETS_UPLOADS . $product['product_image'] ?>" alt="Nike C1TY 'Surplus'"
-                    width="200px">
+
+
+        <main class="main-content">
+            <h1>Nike C1TY Collection</h1>
+
+         
+            <div class="product-grid">
+    <?php if (isset($data['products']) && count($data['products']) > 0): ?>
+        <?php foreach ($data['products'] as $product): ?>
+            <div class="product-card" data-category="<?= htmlspecialchars($product['brand']) ?> <?= htmlspecialchars($product['color']) ?>">
+                <?php if (!empty($product['product_image'])): ?>
+                    <a href="index.php?action=product_detail&id=<?=$product['id']?>">  <img 
+                        src="<?= BASE_ASSETS_UPLOADS . htmlspecialchars($product['product_image']) ?>" 
+                        alt="<?= htmlspecialchars($product['product_name']) ?>" 
+                        width="200px"
+                    ></a>
                 <?php endif; ?>
-                <h2><?= $product['product_name']?></h2>
-                <p><?= $product['price']?>₫</p>
+                <h2><?= htmlspecialchars($product['product_name']) ?></h2>
+                <p><?= number_format($product['price'], 0, ',', '.') ?>₫</p>
             </div>
 
             <?php endforeach  ?>
 
-            <div class="product-card" data-category="unisex gray nike-c1ty-gray">
+            <!-- <div class="product-card" data-category="unisex gray nike-c1ty-gray">
 
                 <div class="product-card" data-category="unisex gray nike-c1ty-gray">
 
@@ -105,7 +107,7 @@
                     <p> 2,299,000₫</p>
                 </div>
                 <div class="product-card" data-category="men brown nike-c1ty">
-                    <img src="images/anh4.png" alt="Nike C1TY ">
+                    <img src="images/Nike C1TY.png" alt="Nike C1TY ">
                     <h2>Nike C1TY </h2>
                     <p> 2,800,000₫</p>
                 </div>
@@ -114,15 +116,9 @@
                     <h2>Nike C1TY Gray</h2>
                     <p> 3,499,000₫</p>
 
-                </div>
+                </div> -->
         </div>
     </main>
 </div>
 
-</div>
-</div>
-</main>
-</div>
-</body>
 
-</html>
