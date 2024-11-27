@@ -1,17 +1,15 @@
-
-
-      <div id="slider">
-        <div class="slides">
-          <img class="slide" src="/images/Slide-1.jpg" />
-          <img class="slide" src="/images/slide-2.jpg" />
-          <img class="slide" src="/images/slide-3.jpg" />
-        </div>
-        <a class="prev" onclick="prevSlide()">&#10094;</a>
-        <a class="next" onclick="nextSlide()">&#10095;</a>
-      </div>
-      <main>
-        <section class="content-section">
-          <div class="Latest-section">
+<div id="slider">
+    <div class="slides">
+        <img class="slide" src="./images/Slide-1.jpg" />
+        <img class="slide" src="./images/slide-2.jpg" />
+        <img class="slide" src="./images/slide-3.jpg" />
+    </div>
+    <a class="prev" onclick="prevSlide()">&#10094;</a>
+    <a class="next" onclick="nextSlide()">&#10095;</a>
+</div>
+<main>
+    <section class="content-section">
+        <div class="Latest-section">
             <h3>The Latest</h3>
             <div class="new-list">
                 <div class="new-item" data-aos="fade-right">
@@ -55,8 +53,33 @@
             <div class="images-info" data-aos="fade-up-left">
                 <img src="./images/more-item1.jpg" alt="">
             </div>
-          </div>
-        </section>
-      </main>
-     
-    
+        </div>
+    </section>
+    <section class="special-offers">
+        <div class="offers-row">
+            <div class="offer-item">
+                <div class="offer-icon">
+                    <span><i class="fa-solid fa-truck"></i></span>
+                    <div class="offer-info">
+                        <h4>Giao Hàng Siêu Tốc</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="offer-item">
+                <div class="offer-icon">
+                    <span><i class="fa-solid fa-gift"></i></span>
+                    <div class="offer-info">
+                        <h4>Ưu Đãi Cực Khủng</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="offer-item">
+                <div class="offer-icon">
+                    <span><i class="fa-solid fa-thumbs-up"></i></span>
+                    <div class="offer-info">
+                        <h4>Chất Lượng - Uy Tín</h4>
+                    </div>
+                </div>
+            </div>
+    </section>
+</main>
