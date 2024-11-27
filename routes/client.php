@@ -4,6 +4,7 @@ require_once PATH_ROOT . "controllers/client/Product_page.php";
 require_once PATH_ROOT . "controllers/client/Product_detail.php";
 
 
+
 $action = $_GET['action'] ?? '/';
 
 match ($action) {
@@ -31,7 +32,8 @@ match ($action) {
 
     "product_detail" => (new Product_pageController)->product_detail(), // chi tiết sản phẩm
 
-
+    "cart-add"=>(new CartController)->cartAdd($_GET['productId']),
+    // "cart-List"=>(new CartController)->cartList(),
 
 };
 

@@ -17,7 +17,7 @@ class BaseModel
             die("Kết nối cơ sở dữ liệu thất bại: {$e->getMessage()}. Vui lòng thử lại sau.");
         }
     }
-
+    
     // Hủy kết nối CSDL
     public function __destruct()
     {

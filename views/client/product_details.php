@@ -43,7 +43,7 @@
                 </div>
             </div>
             
-            <button class="add-to-bag">Thêm Vào Túi</button>
+            <a href="<?=  BASE_URL . "?action=cart-add&productId=" . $product['h_id']?>"><button class="add-to-bag">Thêm Vào Túi</button></a>
             <button class="wishlist">Yêu Thích &#9825;</button>
 
             <div class="product-description">
