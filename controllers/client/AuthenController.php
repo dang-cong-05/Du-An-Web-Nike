@@ -92,20 +92,35 @@
                 }
     
                 if (!empty($errors)) {
-                    return $errors;
+                    $_SESSION['login_errors'] = $errors;
+                    header('Location: /');
+                    exit();
                 }
     
                 // Kiểm tra đăng nhập
                 $user = $this->auth->find('*', 'email = ?', [$email]);
                 
                 if ($user && password_verify($password, $user['password'])) {
-                    $_SESSION['user'] = $user['name'];
-                    $_SESSION['login_sucsess'] = 'WelCome,' . htmlspecialchars($user['name']);
-                    header('Location: /');
-                    
+                    // Đăng nhập thành công
+                    $_SESSION['user'] = [
+                        'id' => $user['id'],
+                        'name' => htmlspecialchars($user['name']),
+                        'role' => $user['role']
+                    ];
+                    $_SESSION['login_success'] = 'Welcome, ' . htmlspecialchars($user['name']);
+                    debug($_SESSION);
+            
+                    // Phân quyền
+                    if ($user['role'] === 'admin') {
+                        header('Location: index.php?mode=admin'); // Trang dành riêng cho admin
+                    } else {
+                        header('Location: index.php'); // Trang dành cho user
+                    }
                     exit();
                 } else {
-                    header('Location: index.php?action=/');
+                    // Đăng nhập thất bại
+                    $_SESSION['login_errors'] = ['general' => "Email hoặc mật khẩu không đúng."];
+                    header('Location: /');
                     exit();
                 }
     

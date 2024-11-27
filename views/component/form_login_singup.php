@@ -14,11 +14,11 @@
                 </div>
 
                 <span>or use your email for registration</span>
-                <input type="text" placeholder="Name" name="username" />
+                <input type="text" placeholder="Name" name="username" required />
 
-                <input type="email" placeholder="Email" name="email" />
+                <input type="email" placeholder="Email" name="email" required />
 
-                <input type="password" placeholder="Password" name="password" />
+                <input type="password" placeholder="Password" name="password" required />
 
 
                 <button type="submit" name="signup">Register</button>
@@ -34,8 +34,8 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
                 <span>or use your account</span>
-                <input type="email" placeholder="Email" name="email" />
-                <input type="password" placeholder="Password" name="password" />
+                <input type="email" placeholder="Email" name="email" required />
+                <input type="password" placeholder="Password" name="password" required />
                 <a href="#">Forgot your password?</a>
                 <button type="submit" name="login">Log In</button>
             </form>
