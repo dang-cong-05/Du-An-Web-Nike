@@ -9,9 +9,9 @@ a {
 }
 .container {
   width: 1350px;
+  height: auto;
   margin: 0 auto;
 }
-
 header {
   height: 70px;
   padding: 5px 10px;
@@ -19,9 +19,14 @@ header {
   top: 0;
   right: 0;
   left: 0;
-  z-index: 1;
+  z-index: 1000;
   background-color: #fff;
+  transform: translateY(0); /* Header bắt đầu ngoài màn hình */
+  transition: transform 0.3s ease; /* Hiệu ứng mượt */
   box-shadow: 0 0 7px #333;
+}
+header.hidden {
+  transform: translateY(-100%); /* Hiện header */
 }
 nav {
   width: 100%;
@@ -114,8 +119,8 @@ nav .menu-icon .user-icon {
 }
 .dropdown-menu {
   display: none;
-  min-width: 120px;
-  height: 100px;
+  min-width: 140px;
+  min-height: 70px;
   position: absolute;
   top: 30px;
   left: 50%;
@@ -131,8 +136,8 @@ nav .menu-icon .user-icon {
   width: 100%;
   line-height: 30px;
   display: block;
-  margin-top: 6px;
-  padding-left: 12px;
+  margin-top: 10px;
+  text-align: center;
   text-decoration: none;
 }
 .user-icon:hover .dropdown-menu {
@@ -243,12 +248,87 @@ nav .menu-icon .cart-count {
   background-color: #ddd;
   color: #333;
 }
-
+/* ------------------------------------------------------------------------------ */
+.more-section {
+  height: 700px;
+}
+.more-info {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  padding: 0 130px;
+  justify-content: space-between;
+}
+.title-info {
+  width: 600px;
+  padding: 10px 20px;
+  border-right: 1px solid #ccc;
+}
+.title-info h2 {
+  font-size: 32px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px 0;
+  display: block;
+  text-align: center;
+}
+.title-info p {
+  display: inline-block;
+  height: 300px;
+  padding: 20px 12px;
+  border-radius: 5px;
+  background-color: rgba(175, 160, 160, 0.2);
+  line-height: 1.5;
+  font-size: 17px;
+  text-align: justify;
+}
+.images-info {
+  width: 450px;
+  height: 100%;
+}
+.images-info img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* Bóng đổ mềm */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng hover mượt */
+}
+.images-info img:hover {
+  transform: translateY(-10px); /* Đẩy ảnh lên một chút */
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.35); /* Bóng đổ đậm hơn khi hover */
+}
+.offers-row {
+  width: 70%;
+  height: 150px;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top: 1px solid #ccc;
+}
+.offers-row .offer-item{
+  min-width: 150px;
+  height: 100px;
+  text-align: center;
+}
+.offers-row .offer-item i {
+  font-size: 60px;
+  color: #666;
+}
+.offer-info {
+  width: 100%;
+  display: inline-block;
+  margin-top: 10px;
+  color: #666;
+}
 footer {
+  position: fixed;
+  bottom: -100px;
   width: 100%;
   height: 60px;
   background-color: #ffffff;
   box-shadow: 0 0 2px #333;
+  transition: bottom 0.3s ease;
 }
 footer > ul {
   width: 100%;
