@@ -1,6 +1,8 @@
 <?php
 
+
 $action = $_GET['action'] ?? '/';
+
 
 // if (
 //     empty($_SESSION['user'])
@@ -9,6 +11,7 @@ $action = $_GET['action'] ?? '/';
 //     header('Location: ' . BASE_URL_ADMIN . '&action=show-form-login');
 //     exit();
 // }
+
 
 match ($action) {
     '/'         => (new DashboardController)->index(),
@@ -20,7 +23,7 @@ match ($action) {
     // 'login'                 => (new AuthenController)->login(),
     // 'logout'                => (new AuthenController)->logout(),
 
-   
+      
     
 
     // CRUD Book
@@ -55,5 +58,13 @@ match ($action) {
     "users-update"=>(new UserController)->update(),
     "users-delete"=>(new UserController)->delete(),
 
+
+
+    "interface-index" => (new InterfaceController)->index(),   // Hiển thị giao diện
+    "interface-create" => (new InterfaceController)->create(), // Tạo giao diện
+    "interface-store" => (new InterfaceController)->store(),   // Lưu giao diện mới
+    "interface-edit" => (new InterfaceController)->edit(),     // Chỉnh sửa giao diện
+    "interface-update" => (new InterfaceController)->update(), // Cập nhật giao diện
+    "interface-delete" => (new InterfaceController)->delete(), // Xóa giao diện
 
 };

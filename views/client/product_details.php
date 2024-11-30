@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>/style/product_details.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>/style/home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-
-<body>
-
-    <main class="product-container">
+<main class="product-container">
         <div class="gallery">
             <div class="main-image">
 
@@ -60,15 +46,13 @@
             <button class="wishlist">Yêu Thích &#9825;</button>
 
             <div class="product-description">
-                <p>Nike C1TY được thiết kế để vượt qua mọi thứ mà thành phố mang đến cho bạn.
-                    Thân giày bằng lưới giúp vừa vặn, thoáng khí, trong khi phần hông và mũi giày được
-                    gia cố giúp bảo vệ đôi chân của bạn khỏi các yếu tố thời tiết. Phiên bản 'Brownstone' này
-                    lấy cảm hứng từ màu sắc của thiết kế kiến trúc mang tính biểu tượng—mang đến cho phong
-                    cách đường phố một ý nghĩa hoàn toàn mới.</p>
+                <p><?= $product['h_description'] ?></p>
                 <ul>
-                    <li>Màu sắc hiển thị: Màu sữa / Đen / Đỏ</li>
-                    <li>Kiểu dáng: FZ3863-200</li>
-                    <li>Quốc gia/Khu vực xuất xứ: Việt Nam</li>
+                    <li>Thương hiệu: <?= $product['h_brand'] ?></li>
+                    <li>Model: <?= $product['h_model'] ?></li>
+                    <li>Chất liệu: <?= $product['h_material'] ?></li>
+                    <li>Tồn kho: <?= $product['h_stock_quantity'] ?></li>
+                    <li>Xuất xứ: Việt Nam</li>
                 </ul>
                 <a href="#" class="view-more">Xem Chi Tiết Sản Phẩm</a>
             </div>
@@ -81,9 +65,7 @@
                     <h3>Đánh giá (50) ★★★★★</h3>/-strong/-heart:>:o:-((:-h <p>Xem đánh giá của khách hàng...</p>
                 </div>
             </div>
-
         </div>
-
     </main>
 
     <script>
