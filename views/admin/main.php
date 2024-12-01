@@ -66,7 +66,7 @@
             </li>
             <hr class="sidebar-divider ">
             <li>
-                 <a href="<?= BASE_URL_ADMIN . '&action=interface-index' ?>">Quản lý Giao Diện</a>
+                 <a href="<?= BASE_URL_ADMIN . '&action=slidershow-index' ?>">Quản lý Giao Diện</a>
             </li>
             <hr class="sidebar-divider ">
             <li >

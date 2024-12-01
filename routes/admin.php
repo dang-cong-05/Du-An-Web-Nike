@@ -60,11 +60,11 @@ match ($action) {
 
 
 
-    "interface-index" => (new InterfaceController)->index(),   // Hiển thị giao diện
-    "interface-create" => (new InterfaceController)->create(), // Tạo giao diện
-    "interface-store" => (new InterfaceController)->store(),   // Lưu giao diện mới
-    "interface-edit" => (new InterfaceController)->edit(),     // Chỉnh sửa giao diện
-    "interface-update" => (new InterfaceController)->update(), // Cập nhật giao diện
-    "interface-delete" => (new InterfaceController)->delete(), // Xóa giao diện
+    "slidershow-index" => (new SlidershowController)->index(),   // Hiển thị giao diện
+    "slidershow-create" => (new SlidershowController)->create(), // Tạo giao diện
+    "slidershow-store" => (new SlidershowController)->store(),   // Lưu giao diện mới
+    "slidershow-edit" => (new SlidershowController)->edit(),     // Chỉnh sửa giao diện
+    "slidershow-update" => (new SlidershowController)->update(), // Cập nhật giao diện
+    "slidershow-delete" => (new SlidershowController)->delete(), // Xóa giao diện
 
 };
