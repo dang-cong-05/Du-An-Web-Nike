@@ -31,6 +31,10 @@ match ($action) {
 
     "product_detail" => (new Product_pageController)->product_detail(), // chi tiết sản phẩm
 
+    "orders-edit" => (new OrderController) ->edit(),
+    "orders-index" => (new OrderController) ->index(),
+    "orders-update" => (new OrderController)->update(),
+
 
 
 };
