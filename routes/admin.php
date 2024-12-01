@@ -57,13 +57,7 @@ match ($action) {
     "users-edit"=>(new UserController)->edit(),
     "users-update"=>(new UserController)->update(),
     "users-delete"=>(new UserController)->delete(),
-    
-    "orders-index" => (new OrderController)->index(),
-    "orders-create" => (new OrderController)->create(),
-    "orders-store" => (new OrderController)->store(),
-    "orders-edit" => (new OrderController)->edit(),
-    "orders-update" => (new OrderController)->update(),
-    "orders-delete" => (new OrderController)->delete(),
+
 
 
     "slidershow-index" => (new SlidershowController)->index(),   // Hiển thị giao diện

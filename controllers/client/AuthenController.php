@@ -78,7 +78,61 @@
 
         public function signin()
         {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
+                $email = trim($_POST['email']);
+                $password = trim($_POST['password']);
+    
+                $errors = [];
+    
+                if (empty($email)) {
+                    $errors['email'] = "Email không được để trống.";
+                }
+                if (empty($password)) {
+                    $errors['password'] = "Mật khẩu không được để trống.";
+                }
+    
+                if (!empty($errors)) {
+                    $_SESSION['login_errors'] = $errors;
+                    header('Location: /');
+                    exit();
+                }
+    
+                // Kiểm tra đăng nhập
+                $user = $this->auth->find('*', 'email = ?', [$email]);
+                
+                if ($user && password_verify($password, $user['password'])) {
+                    // Đăng nhập thành công
+                    $_SESSION['user'] = [
+                        'id' => $user['id'],
+                        'name' => htmlspecialchars($user['name']),
+                        'role' => $user['role']
+                    ];
+                    $_SESSION['login_success'] = 'Welcome, ' . htmlspecialchars($user['name']);
+                    debug($_SESSION);
             
+                    // Phân quyền
+                    if ($user['role'] === 'admin') {
+                        header('Location: index.php?mode=admin'); // Trang dành riêng cho admin
+                    } else {
+                        header('Location: index.php'); // Trang dành cho user
+                    }
+                    exit();
+                } else {
+                    // Đăng nhập thất bại
+                    $_SESSION['login_errors'] = ['general' => "Email hoặc mật khẩu không đúng."];
+                    header('Location: /');
+                    exit();
+                }
+    
+                return $errors;
+            }
+        }
+
+        public function logout(){
+            session_destroy();  // hủy session trên máy chủ bao gồm cả session ID.
+
+            header('Location: ' . BASE_URL);
+            exit();
         }
     }
 ?>
