@@ -57,7 +57,7 @@ unset($_SESSION['message']); // Xóa thông báo sau khi đã hiển thị
                             <a href="#" onclick="openModal()">Đăng ký</a>
                             <a href="#" onclick="openModal()">Đăng nhập</a>
                         </div>
-                        <?php endif; ?>
+                        
                     </div>
                     <div class="cart-icon">
                         <a href="index.php?action=cart"><i class="fa-solid fa-cart-shopping"></i></a>

@@ -78,6 +78,61 @@ class SlidershowController {
         header("Location: " . BASE_URL_ADMIN . '&action=slidershow-index');
         exit();
     }
+
+        public function store() {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+                    $image = $_FILES['image'];
+                    $uploadDir = PATH_ASSETS_UPLOADS . 'slidershows/';
+                    if (!file_exists($uploadDir)) mkdir($uploadDir, 0777, true);
+                    $fileName = time() . '-' . basename($image['name']);
+                    $filePath = $uploadDir . $fileName;
+    
+                    if (move_uploaded_file($image['tmp_name'], $filePath)) {
+                        $imagePath = 'assets/uploads/slidershows/' . $fileName;
+                        $model = new SlidershowModel();
+                        $model->create($imagePath);  // Lưu slider mới vào cơ sở dữ liệu
+                        header("Location: " . BASE_URL_ADMIN . '&action=slidershow-index');
+                        exit();
+                    }
+                }
+            }
+            include PATH_VIEW_ADMIN . 'slidershow/create.php';  // Chuyển tới view tạo slider mới
+        }
+    
+        // Phương thức update() - cập nhật slider
+        public function update() {
+            $id = intval($_GET['id']);
+            $model = new SlidershowModel();
+            $data = $model->getByID($id);
+    
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $imagePath = $data['image'];  // Giữ lại hình ảnh cũ nếu không có hình ảnh mới
+    
+                // Kiểm tra nếu có ảnh mới
+                if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+                    $image = $_FILES['image'];
+                    $uploadDir = PATH_ASSETS_UPLOADS . 'slidershows/';
+                    if (!file_exists($uploadDir)) mkdir($uploadDir, 0777, true);
+                    $fileName = time() . '-' . basename($image['name']);
+                    $filePath = $uploadDir . $fileName;
+    
+                    if (move_uploaded_file($image['tmp_name'], $filePath)) {
+                        $imagePath = 'assets/uploads/slidershows/' . $fileName;
+                    }
+                }
+                $updateResult = $model->update($id, ['image' => $imagePath]);
+    
+                if ($updateResult) {
+                    header("Location: " . BASE_URL_ADMIN . '&action=slidershow-index');
+                    exit();
+                } else {
+                    echo "<p>Cập nhật hình ảnh thất bại. Vui lòng thử lại!</p>";
+                }
+            }
+    
+            include PATH_VIEW_ADMIN . 'slidershow/edit.php';  
+        }
 }
 
 ?>

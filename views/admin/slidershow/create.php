@@ -48,10 +48,6 @@ button.btn-primary {
     </form>
 </div>
 
-
-
-
-
     <!-- Hiển thị thông báo nếu có -->
     <?php if (isset($_SESSION['msg'])): ?>
         <div class="message">

@@ -66,8 +66,6 @@ match ($action) {
     "orders-delete" => (new OrderController)->delete(),
 
 
-
-
     "slidershow-index" => (new SlidershowController)->index(),   // Hiển thị giao diện
     "slidershow-create" => (new SlidershowController)->create(), // Tạo giao diện
     "slidershow-store" => (new SlidershowController)->store(),   // Lưu giao diện mới

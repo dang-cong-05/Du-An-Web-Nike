@@ -93,7 +93,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
 
-
 <style>
     .page-title {
         font-size: 1.5rem;
