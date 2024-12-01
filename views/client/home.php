@@ -1,12 +1,22 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Website_Nike/configs/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Website_Nike/models/SlidershowModel.php';
+
+$slidershowModel = new SlidershowModel();
+$slides = $slidershowModel->getAll();
+?>
 <div id="slider">
     <div class="slides">
-        <img class="slide" src="./images/Slide-1.jpg" />
-        <img class="slide" src="./images/slide-2.jpg" />
-        <img class="slide" src="./images/slide-3.jpg" />
+        <?php if (!empty($slides)): ?>
+            <?php foreach ($slides as $slide): ?>
+                <img class="slide" src="<?= BASE_URL . $slide['image'] ?>" alt="image">
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>Chưa có slider nào.</p>
+        <?php endif; ?>
     </div>
-    <a class="prev" onclick="prevSlide()">&#10094;</a>
-    <a class="next" onclick="nextSlide()">&#10095;</a>
 </div>
+
 <main>
     <section class="content-section">
         <div class="Latest-section">
@@ -42,49 +52,29 @@
         </div>
     </section>
     <section class="more-section">
-        <div class="more-info">
-            <div class="title-info" data-aos="fade-down-right">
-                <h2>About Us</h2>
-                <p>
-                    Welcome to NFA - Nike Fashion Authentic , your ultimate destination for authentic and trendy Nike
-                    sneakers.
-                    We are committed to providing you with a seamless shopping experience, offering top-quality
-                    products,
-                    innovative designs, and unmatched comfort for every lifestyle. Explore our latest collections and
-                    step into
-                    a world of style and performance with Nike!
-                </p>
-            </div>
-            <div class="images-info" data-aos="fade-up-left">
-                <img src="./images/more-item1.jpg" alt="">
-            </div>
-        </div>
-    </section>
-    <section class="special-offers">
-        <div class="offers-row">
-            <div class="offer-item">
-                <div class="offer-icon">
-                    <span><i class="fa-solid fa-truck"></i></span>
-                    <div class="offer-info">
-                        <h4>Giao Hàng Siêu Tốc</h4>
-                    </div>
+            <div class="more-info">
+                <div class="title-info" data-aos="fade-down-right">
+                    <h2>About Us</h2>
+                    <p>
+                        Welcome to NFA - Nike Fashion Authentic , your ultimate destination for authentic and trendy Nike
+                        sneakers.
+                        We are committed to providing you with a seamless shopping experience, offering top-quality
+                        products,
+                        innovative designs, and unmatched comfort for every lifestyle. Explore our latest collections and
+                        step into
+                        a world of style and performance with Nike!
+                    </p>
+                </div>
+                <div class="images-info" data-aos="fade-up-left">
+                    <img src="./images/more-item1.jpg" alt="">
                 </div>
             </div>
-            <div class="offer-item">
-                <div class="offer-icon">
-                    <span><i class="fa-solid fa-gift"></i></span>
-                    <div class="offer-info">
-                        <h4>Ưu Đãi Cực Khủng</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="offer-item">
-                <div class="offer-icon">
-                    <span><i class="fa-solid fa-thumbs-up"></i></span>
-                    <div class="offer-info">
-                        <h4>Chất Lượng - Uy Tín</h4>
-                    </div>
-                </div>
-            </div>
-    </section>
+        </section>
 </main>
+<script src="/script/slider.js"></script>
+<script>
+    $(document).ready(function() {
+        loadSlider(); 
+    });
+</script>
+    

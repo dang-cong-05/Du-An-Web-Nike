@@ -5,8 +5,7 @@
             <h3>Giới Tính</h3>
             <label><input type="checkbox" class="filter-checkbox" data-filter="men"> Đàn Ông</label><br>
             <label><input type="checkbox" class="filter-checkbox" data-filter="women"> Phụ Nữ</label><br>
-            <label><input type="checkbox" class="filter-checkbox" data-filter="unisex">Không Phân Biệt Giới
-                Tính</label>
+            <label><input type="checkbox" class="filter-checkbox" data-filter="unisex">Không Phân Biệt Giới Tính</label>
         </div>
         <div class="filter-section">
             <h3>Màu Sắc</h3>

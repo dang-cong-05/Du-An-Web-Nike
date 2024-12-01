@@ -11,8 +11,7 @@
 
             <div class="thumbnail-images">
                 <img src="images/nike1,1.png" alt="Shoe Image 1" onclick="changeImage('images/nike1,1.png')">
-                <img src="images/nike1,2.png" alt="Shoe Image 2" onclick="changeImage('images/nike1,2.png')">
-                <img src="images/nike1,3.jpg" alt="Shoe Image 3" onclick="changeImage('images/nike1,3.jpg')">
+                <img src="images/nike1,2.png" alt="Shoe Image 2" onclick="changeImage('images/nike1,2.png')">/-strong/-heart:>:o:-((:-h <img src="images/nike1,3.jpg" alt="Shoe Image 3" onclick="changeImage('images/nike1,3.jpg')">
                 <img src="images/nike1,4.png" alt="Shoe Image 4" onclick="changeImage('images/nike1,4.png')">
                 <img src="images/nike1,5.png" alt="Shoe Image 5" onclick="changeImage('images/nike1,5.png')">
             </div>
@@ -63,8 +62,7 @@
                     <p>Chi tiết về giao hàng và trả hàng...</p>
                 </div>
                 <div class="reviews">
-                    <h3>Đánh giá (50) ★★★★★</h3>
-                    <p>Xem đánh giá của khách hàng...</p>
+                    <h3>Đánh giá (50) ★★★★★</h3>/-strong/-heart:>:o:-((:-h <p>Xem đánh giá của khách hàng...</p>
                 </div>
             </div>
         </div>

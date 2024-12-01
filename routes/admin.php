@@ -1,6 +1,8 @@
 <?php
 
+
 $action = $_GET['action'] ?? '/';
+
 
 // if (
 //     empty($_SESSION['user'])
@@ -9,6 +11,7 @@ $action = $_GET['action'] ?? '/';
 //     header('Location: ' . BASE_URL_ADMIN . '&action=show-form-login');
 //     exit();
 // }
+
 
 match ($action) {
     '/'         => (new DashboardController)->index(),
@@ -20,7 +23,7 @@ match ($action) {
     // 'login'                 => (new AuthenController)->login(),
     // 'logout'                => (new AuthenController)->logout(),
 
-   
+      
     
 
     // CRUD Book
@@ -54,14 +57,14 @@ match ($action) {
     "users-edit"=>(new UserController)->edit(),
     "users-update"=>(new UserController)->update(),
     "users-delete"=>(new UserController)->delete(),
-    
-    "orders-index" => (new OrderController)->index(),
-    "orders-create" => (new OrderController)->create(),
-    "orders-store" => (new OrderController)->store(),
-    "orders-edit" => (new OrderController)->edit(),
-    "orders-update" => (new OrderController)->update(),
-    "orders-delete" => (new OrderController)->delete(),
 
 
+
+    "slidershow-index" => (new SlidershowController)->index(),   // Hiển thị giao diện
+    "slidershow-create" => (new SlidershowController)->create(), // Tạo giao diện
+    "slidershow-store" => (new SlidershowController)->store(),   // Lưu giao diện mới
+    "slidershow-edit" => (new SlidershowController)->edit(),     // Chỉnh sửa giao diện
+    "slidershow-update" => (new SlidershowController)->update(), // Cập nhật giao diện
+    "slidershow-delete" => (new SlidershowController)->delete(), // Xóa giao diện
 
 };

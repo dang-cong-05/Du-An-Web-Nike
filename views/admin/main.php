@@ -83,6 +83,10 @@ if (isset($_POST['logout'])) {
                 <a  href="<?= BASE_URL_ADMIN . '&action=users-index' ?>">Quản lý User</a>
             </li>
             <hr class="sidebar-divider ">
+            <li>
+                 <a href="<?= BASE_URL_ADMIN . '&action=slidershow-index' ?>">Quản lý Giao Diện</a>
+            </li>
+            <hr class="sidebar-divider ">
             <li >
                 <a href="<?= BASE_URL_ADMIN . '&action=products-index' ?>"> Sản phẩm</a>
             </li>
