@@ -1,25 +1,22 @@
 <?php
-
 class Database {
-    private $host = DB_HOST;
-    private $port = DB_PORT;
-    private $username = DB_USERNAME;
-    private $password = DB_PASSWORD;
-    private $dbname = DB_NAME;
-    private $conn;
+    private static $connection;
 
-    // Chuyển __construct thành public
-    public function __construct() {
-        // Khởi tạo kết nối ở đây
-    }
+    private function __construct() {}
 
-    public function getConnection() {
-        if ($this->conn === null) {
-            $dsn = "mysql:host={$this->host};port={$this->port};dbname={$this->dbname}";
-            $this->conn = new PDO($dsn, $this->username, $this->password);
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    public static function getConnection() {
+        if (self::$connection === null) {
+            try {
+                self::$connection = new PDO(
+                    'mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_NAME,
+                    DB_USERNAME,
+                    DB_PASSWORD,
+                    DB_OPTIONS
+                );
+            } catch (PDOException $e) {
+                die("Database connection error: " . $e->getMessage());
+            }
         }
-        return $this->conn;
+        return self::$connection;
     }
 }
-

@@ -26,12 +26,7 @@ match ($action) {
 
     "cart" =>(new CartController)->index(),
     
-
-    "search" =>(new Product_pageController)->searchProduct(),
-
-    "product_detail" => (new Product_pageController)->product_detail(), // chi tiết sản phẩm
-
-
+        
 
 };
 
