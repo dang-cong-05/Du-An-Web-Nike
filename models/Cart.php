@@ -5,24 +5,52 @@ class Cart extends BaseModel
     protected $table = 'carts';
     
 
+
+
+
+//     function showOneCart($tableName, $userId)
+// {
+//     try {
+//         // Tạo câu truy vấn SQL
+//         $sql = "SELECT * FROM $tableName WHERE user_id = :user_id LIMIT 1";
+
+//         // Chuẩn bị câu lệnh SQL
+//         $stmt = $this->pdo->prepare($sql);
+
+//         // Gắn tham số id
+//         $stmt->bindParam(":user_id", $userId, PDO::PARAM_INT);
+
+//         // Thực thi câu lệnh
+//         $stmt->execute();
+
+//         // Trả về kết quả
+//         return $stmt->fetch(PDO::FETCH_ASSOC);
+//     } catch (Exception $e) {
+//         // Ghi log hoặc xử lý lỗi
+//         debug($e); // Hoặc thay bằng error_log($e->getMessage());
+//         return false;
+//     }
+// }
+
     
-    public function showOne($id){
-        try{
-            $sql = "SELECT * FROM products WHERE id = :id LIMIT 1";
-
+    public function showOneCart($tableName, $conditions = []) {
+        try {
+            $conditionString = implode(' AND ', array_map(fn($key) => "`$key` = :$key", array_keys($conditions)));
+            $sql = "SELECT * FROM $tableName WHERE $conditionString LIMIT 1";
             $stmt = $this->pdo->prepare($sql);
-            
-            $stmt ->bindParam(":id", $id);
-
+    
+            foreach ($conditions as $key => $value) {
+                $stmt->bindValue(":$key", $value);
+            }
+    
             $stmt->execute();
-
             return $stmt->fetch();
-        }catch (PDOException $e) {
+        } catch (Exception $e) {
             error_log($e->getMessage());
-        return [];
+            return null;
+        }
     }
-
-    }
+    
      // Lấy danh sách cột được bọc trong dấu ``
      public function get_str_keys($data) {
         $keys = array_keys($data);

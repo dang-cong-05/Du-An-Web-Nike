@@ -5,110 +5,127 @@ class CartController
     private $product;
     private $cart;
     private $cart_item;
-    public function __construct() {
+    public function __construct()
+    {
         $this->product = new Product();
         $this->cart = new Cart();
         $this->cart_item = new Cart_items();
     }
 
-    public function index() 
+    public function index()
     {
         $view = 'cart';
         require_once PATH_VIEW_CLIENT_MAIN;
     }
-   
-     
-    // public function cartAdd($productId)
-    // {
-    //     // Lấy thông tin sản phẩm
-    //     $product = $this->product->showOne($productId);
-    
-    //     // Lưu sản phẩm vào session
-    //     $_SESSION['cart'][$productId] = array_merge(
-    //         $product, // Dữ liệu sản phẩm
-    //         ['quantity' => 1] // Thêm số lượng
-    //     );
-        
-    
-    //     try {
-    //         // Bắt đầu transaction
-    //         $pdo = $this->cart->getPdo(); // Sử dụng getter để lấy PDO
-    //         $pdo->beginTransaction();
-    
-    //         // Thêm vào bảng carts
-    //         $cartId = $this->cart->insert_get_last_id('carts', ['user_id' => $_SESSION['user']['id']]);
-    
-    //         // Thêm vào bảng cart_items
-    //         foreach ($_SESSION['cart'] as $productId => $item) {
-    //             $this->cart_item->insertc('cart_items', [
-    //                 'cart_id' => $cartId,
-    //                 'product_id' => $productId,
-    //                 'quantity' => $item['quantity'],
-    //             ]);
-    //         }
-    
-    //         // Commit giao dịch
-    //         $pdo->commit();
-    //     } catch (Exception $e) {
-    //         // Rollback nếu có lỗi
-    //         $pdo->rollBack();
-    //         error_log($e->getMessage());
-    //     }
-    // }
+
+
+
 
     public function cartAdd($productId)
-{
-    try {
-        // Kiểm tra session cart
-        if (!isset($_SESSION['cart']) || !is_array($_SESSION['cart'])) {
-            $_SESSION['cart'] = [];
-        }
+    {
+        try {
 
-        // Ép kiểu $productId thành số nguyên
-        $productId = (int)$productId;
 
-        // Lấy thông tin sản phẩm
-        $product = $this->product->showOne($productId);
-      
-        // Kiểm tra nếu sản phẩm là mảng hợp lệ
-        if (!is_array($product) || empty($product)) {
-            throw new Exception("Dữ liệu sản phẩm không hợp lệ hoặc không tìm thấy sản phẩm.");
-        }
 
-        // Lưu sản phẩm vào session
-        $_SESSION['cart'][$productId] = array_merge($product, ['quantity' => 1]);
-       debug($_SESSION);
-        // Tiến hành giao dịch với database
-        $pdo = $this->cart->getPdo();
-        $pdo->beginTransaction();
-       
-        // Thêm vào bảng carts
-       // Ví dụ sử dụng phương thức insert_get_last_id
-        $cartId = $this->cart->insert_get_last_id('carts', ['user_id' => $_SESSION['user']['id']]);
+            // Lấy thông tin sản phẩm
+            $product = $this->product->showOne($productId);
 
-        
-        // Thêm vào bảng cart_items
-        foreach ($_SESSION['cart'] as $productId => $item) {
+
+
+            // Lưu sản phẩm vào session
+            $_SESSION['cart'][$productId] = array_merge($product, ['quantity' => 1]);
+
+            // Tiến hành giao dịch với database
+            $pdo = $this->cart->getPdo();
+            // $pdo->beginTransaction();
+
+            $cart = $this->cart->showOneCart('carts', ['user_id' => $_SESSION['user']['id']]);
+
+            if (empty($cart)) {
+                $cartId = $this->cart->insert_get_last_id('carts', ['user_id' => $_SESSION['user']['id']]);
+            } else {
+                $cartId = $cart['id'];
+            }
+            // Thêm vào bảng carts
+
+            $_SESSION['cart_Id'] = $cartId;
+
+            // Thêm vào bảng cart_items
+
             $this->cart_item->insertc('cart_items', [
                 'cart_id' => $cartId,
                 'product_id' => $productId,
-                'quantity' => $item['quantity'],
+                'quantity' => 1,
+            ]);
+
+
+
+            // $pdo->commit();
+        } catch (Exception $e) {
+            // Rollback nếu có lỗi
+            if (isset($pdo)) {
+                // $pdo->rollBack();
+            }
+            error_log($e->getMessage());
+            die("Đã xảy ra lỗi khi thêm sản phẩm vào giỏ hàng.");
+        }
+        header('Location:' . BASE_URL . '?action=cart-List');
+    }
+
+
+    public function cartList()
+    {
+        $view = "cart";
+        require_once PATH_VIEW_CLIENT_MAIN;
+    }
+
+    public function cartInc($productId)
+    {
+        // Kiểm tra xem sản phẩm có tồn tại trong session giỏ hàng không
+        if (isset($_SESSION['cart'][$productId])) {
+            // Tăng số lượng sản phẩm trong session
+        $_SESSION['cart'][$productId]['quantity'] += 1;
+
+        // Cập nhật số lượng vào cơ sở dữ liệu
+        $this->cart_item->updateCartItem($_SESSION['cart_Id'], $productId, [
+            'quantity' => $_SESSION['cart'][$productId]['quantity']
+        ]);
+        }
+
+       
+
+        // Redirect trở lại danh sách giỏ hàng hoặc trang hiện tại
+        header('Location: ' . BASE_URL . '?action=cart-List');
+    }
+
+    public function cartDec($productId)
+    {
+        // Kiểm tra xem sản phẩm có tồn tại trong session giỏ hàng không
+        if (isset($_SESSION['cart'][$productId]) && $_SESSION['cart'][$productId]['quantity'] > 1) {
+
+            // Giam số lượng sản phẩm trong session
+            $_SESSION['cart'][$productId]['quantity'] -= 1;
+
+            // Cập nhật số lượng vào cơ sở dữ liệu
+            $this->cart_item->updateCartItem($_SESSION['cart_Id'], $productId, [
+                'quantity' => $_SESSION['cart'][$productId]['quantity']
             ]);
         }
+        // Redirect trở lại danh sách giỏ hàng hoặc trang hiện tại
+        header('Location: ' . BASE_URL . '?action=cart-List');
+    }
 
-        // Commit giao dịch
-        $pdo->commit();
-    } catch (Exception $e) {
-        // Rollback nếu có lỗi
-        if (isset($pdo)) {
-            $pdo->rollBack();
+    public function cartDelete($productId)
+    {
+        // Kiểm tra xem sản phẩm có tồn tại trong session giỏ hàng không
+        if (isset($_SESSION['cart'][$productId])) {
+
+            unset($_SESSION['cart'][$productId]);
+
+            // Cập nhật số lượng vào cơ sở dữ liệu
+            $this->cart_item->deleteCartitem($_SESSION['cart_Id'], $productId);
         }
-        error_log($e->getMessage());
-        die("Đã xảy ra lỗi khi thêm sản phẩm vào giỏ hàng.");
+        // Redirect trở lại danh sách giỏ hàng hoặc trang hiện tại
+        header('Location: ' . BASE_URL . '?action=cart-List');
     }
 }
-
-
-    
-}
-

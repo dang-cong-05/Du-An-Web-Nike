@@ -21,44 +21,37 @@ class Cart_items extends BaseModel
     }
 
     }
-    public function get_str_keys($data){
+    public function get_str_keys($data) {
         $keys = array_keys($data);
-        $keystenten = array_map(function ($key){
-            return "`$key`";
-        },$keys);
-        return implode(',', $keystenten);
-    
-    
+        return implode(',', array_map(fn($key) => "`$key`", $keys));
     }
-    public function get_virtual_params($data){
-        $key=array_keys($data);
-    
-        $tmp = [];
-        foreach($key as $key){
-            $tmp[] = ":$key";
-        }
-        return implode(',',$tmp);
+    public function get_virtual_params($data) {
+        return implode(',', array_map(fn($key) => ":$key", array_keys($data)));
     }
 
     
   
     
-    public function insertc($tableName, $data = [])
-    {
+    public function insertc($tableName, $data = []) {
         try {
-            $columns = $this->get_str_keys($data);
-            $placeholders = $this->get_virtual_params($data);
-    
-            $sql = "INSERT INTO $tableName ($columns) VALUES ($placeholders)";
+            if (empty($data)) {
+                throw new Exception("No data provided for insertion.");
+            }
+
+            $strKeys = $this->get_str_keys($data);
+            $virtualParams = $this->get_virtual_params($data);
+
+            $sql = "INSERT INTO $tableName ($strKeys) VALUES ($virtualParams)";
             $stmt = $this->pdo->prepare($sql);
-    
+
             foreach ($data as $fieldName => $value) {
                 $stmt->bindValue(":$fieldName", $value);
             }
-    
+
             $stmt->execute();
-        } catch (PDOException $e) {
-            error_log($e->getMessage());
+        } catch (\Exception $e) {
+            
+            return false;
         }
     }
     
@@ -87,4 +80,54 @@ class Cart_items extends BaseModel
     {
         return $this->pdo;
     }
+
+    function get_set_params($data) {
+        $setParams = [];
+        foreach ($data as $fieldName => $value) {
+            $setParams[] = "$fieldName = :$fieldName";
+        }
+        return implode(', ', $setParams);
+    }
+    
+
+    public function updateCartItem($cartId, $productId, $data)
+{
+    try {
+        // Kiểm tra dữ liệu
+        foreach ($data as $key => $value) {
+            if (is_array($value)) {
+                throw new Exception("Trường $key chứa giá trị không hợp lệ (mảng).");
+            }
+        }
+
+        $setParams = $this->get_set_params($data);
+        $sql = "UPDATE cart_items SET $setParams WHERE cart_id = :cart_id AND product_id = :product_id";
+        $stmt = $this->pdo->prepare($sql);
+
+        foreach ($data as $fieldName => $value) {
+            $stmt->bindValue(":$fieldName", $value);
+        }
+
+        $stmt->bindValue(":cart_id", $cartId);
+        $stmt->bindValue(":product_id", $productId);
+
+        $stmt->execute();
+    } catch (\Exception $e) {
+        debug($e); // Hoặc log lỗi ra file
+    }
+}
+function deleteCartitem($cartId, $productId) {
+    try {
+        $sql = "DELETE FROM cart_items WHERE cart_id = :cart_id AND product_id = :product_id";
+        $stmt = $this->pdo->prepare($sql);
+
+        $stmt->bindValue(":cart_id", $cartId);
+        $stmt->bindValue(":product_id", $productId);
+
+        $stmt->execute();
+    } catch (Exception $e) {
+        debug($e);
+    }
+}
+    
 }

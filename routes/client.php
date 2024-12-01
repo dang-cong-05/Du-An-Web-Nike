@@ -33,7 +33,10 @@ match ($action) {
     "product_detail" => (new Product_pageController)->product_detail(), // chi tiết sản phẩm
 
     "cart-add"=>(new CartController)->cartAdd($_GET['productId']),
-    // "cart-List"=>(new CartController)->cartList(),
+    "cart-List"=>(new CartController)->cartList(),
+    "cart-inc" =>(new CartController)->cartInc($_GET['productId']),
+    "cart-dec" =>(new CartController)->cartDec($_GET['productId']),
+    "cart-delete" =>(new CartController)->cartDelete($_GET['productId']),
 
 };
 

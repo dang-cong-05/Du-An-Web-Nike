@@ -26,9 +26,11 @@
             
             <div class="color-options">
                 <!-- Giả sử bạn có thêm các màu khác từ cơ sở dữ liệu -->
-                <img src="<?= $product['h_product_image'] ?>" alt="Color Option" class="color" onclick="changeImage('<?= $product['h_product_image'] ?>')">
+                <ul style="list-style: none;">
+                    <li>Màu sắc:    <?= $product['h_color'] ?> </li>
+                </ul>
             </div>
-
+        
             <div class="size-selection">
                 <h3>Chọn Kích Cỡ</h3>
                 <div class="sizes">
@@ -43,7 +45,7 @@
                 </div>
             </div>
             
-            <a href="<?=  BASE_URL . "?action=cart-add&productId=" . $product['h_id']?>"><button class="add-to-bag">Thêm Vào Túi</button></a>
+            <a href="index.php?action=cart-add&productId=<?=$product['h_id']?>"><button class="add-to-bag">Thêm Vào Túi</button></a>
             <button class="wishlist">Yêu Thích &#9825;</button>
 
             <div class="product-description">
