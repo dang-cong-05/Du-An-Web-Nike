@@ -99,6 +99,17 @@ WHERE h.id = :id"
         }
     }
 
-
+    public function getPdo()
+    {
+        return $this->pdo;
+    }
+    
+    public function showOne($productId)
+{
+    $sql = "SELECT * FROM products WHERE id = :id";
+    $stmt = $this->getPdo()->prepare($sql);
+    $stmt->execute(['id' => $productId]);
+    return $stmt->fetch(PDO::FETCH_ASSOC); // Trả về mảng kết hợp
+}
     
 }

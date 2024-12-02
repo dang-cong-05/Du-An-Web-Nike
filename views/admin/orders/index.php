@@ -37,7 +37,7 @@ if (isset($_SESSION['success'])) {
 <?php foreach ($data as $order): ?>
 <tr>
     <td><?= $order['orders_id'] ?></td>
-    <td><?= $order['users_username'] ?></td>
+    <td><?= $order['users_name'] ?></td>
     <td><?= $order['users_email'] ?></td>
     <td><?= $order['orders_product_name'] ?></td>
     <td><?= number_format($order['orders_total_amount'], 0, ',', '.') ?> VND</td>

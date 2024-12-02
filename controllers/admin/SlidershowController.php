@@ -8,7 +8,8 @@ class SlidershowController {
     public function index() {
         $model = new SlidershowModel();
         $data = $model->getAll();
-        include PATH_VIEW_ADMIN . 'slidershow/index.php';
+        $view ="slidershow/index";
+        require_once PATH_VIEW_ADMIN_MAIN;
     }
 
     public function create() {
@@ -29,7 +30,9 @@ class SlidershowController {
                 }
             }
         }
-        include PATH_VIEW_ADMIN . 'slidershow/create.php';
+        $view ="slidershow/create";
+        require_once PATH_VIEW_ADMIN_MAIN;
+        
     }
 
     public function edit() {
@@ -68,7 +71,8 @@ class SlidershowController {
                 echo "<p>Cập nhật hình ảnh thất bại. Vui lòng thử lại!</p>";
             }
         }
-        include PATH_VIEW_ADMIN . 'slidershow/edit.php'; 
+        $view ="slidershow/edit";
+        require_once PATH_VIEW_ADMIN_MAIN;
     }
 
     public function delete() {
@@ -97,7 +101,10 @@ class SlidershowController {
                     }
                 }
             }
-            include PATH_VIEW_ADMIN . 'slidershow/create.php';  // Chuyển tới view tạo slider mới
+      
+            $view ="slidershow/create.php";
+            require_once PATH_VIEW_ADMIN_MAIN;
+            // Chuyển tới view tạo slider mới
         }
     
         // Phương thức update() - cập nhật slider
@@ -131,7 +138,8 @@ class SlidershowController {
                 }
             }
     
-            include PATH_VIEW_ADMIN . 'slidershow/edit.php';  
+            $view ="slidershow/edit";
+            require_once PATH_VIEW_ADMIN_MAIN;
         }
 }
 

@@ -11,7 +11,8 @@
 
             <div class="thumbnail-images">
                 <img src="images/nike1,1.png" alt="Shoe Image 1" onclick="changeImage('images/nike1,1.png')">
-                <img src="images/nike1,2.png" alt="Shoe Image 2" onclick="changeImage('images/nike1,2.png')">/-strong/-heart:>:o:-((:-h <img src="images/nike1,3.jpg" alt="Shoe Image 3" onclick="changeImage('images/nike1,3.jpg')">
+                <img src="images/nike1,2.png" alt="Shoe Image 2" onclick="changeImage('images/nike1,2.png')">
+                <img src="images/nike1,3.jpg" alt="Shoe Image 3" onclick="changeImage('images/nike1,3.jpg')">
                 <img src="images/nike1,4.png" alt="Shoe Image 4" onclick="changeImage('images/nike1,4.png')">
                 <img src="images/nike1,5.png" alt="Shoe Image 5" onclick="changeImage('images/nike1,5.png')">
             </div>
@@ -25,9 +26,11 @@
             
             <div class="color-options">
                 <!-- Giả sử bạn có thêm các màu khác từ cơ sở dữ liệu -->
-                <img src="<?= $product['h_product_image'] ?>" alt="Color Option" class="color" onclick="changeImage('<?= $product['h_product_image'] ?>')">
+                <ul style="list-style: none;">
+                    <li>Màu sắc:    <?= $product['h_color'] ?> </li>
+                </ul>
             </div>
-
+        
             <div class="size-selection">
                 <h3>Chọn Kích Cỡ</h3>
                 <div class="sizes">
@@ -42,7 +45,7 @@
                 </div>
             </div>
             
-            <button class="add-to-bag">Thêm Vào Túi</button>
+            <a href="index.php?action=cart-add&productId=<?=$product['h_id']?>"><button class="add-to-bag">Thêm Vào Túi</button></a>
             <button class="wishlist">Yêu Thích &#9825;</button>
 
             <div class="product-description">

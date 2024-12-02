@@ -6,21 +6,22 @@ class Order extends BaseModel
     public function getAll()
 {
     $sql = "
-        SELECT 
-            orders.id AS orders_id,
-            users.username AS users_username,
-            users.email AS users_email,
-            orders.product_name AS orders_product_name,
-            orders.total_amount AS orders_total_amount,
-            orders.status AS order_status,
-            orders.created_at AS order_created_at
-        FROM 
-            orders
-        JOIN 
-            users ON orders.user_id = users.id
-        ORDER BY 
-            orders.created_at DESC;
-    ";
+    SELECT 
+        orders.id AS orders_id,
+        users.name AS users_name,
+        users.email AS users_email,
+        orders.product_name AS orders_product_name,
+        orders.total_amount AS orders_total_amount,
+        orders.status AS order_status,
+        orders.created_at AS order_created_at
+    FROM 
+        orders
+    JOIN 
+        users ON orders.user_id = users.id
+    ORDER BY 
+        orders.created_at DESC;
+";
+
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute();
 
@@ -31,7 +32,7 @@ public function getByID($id)
     $sql = "
         SELECT 
             orders.id AS orders_id,
-            users.username AS users_username,
+            users.name AS users_name,
             users.email AS users_email,
             orders.product_name AS orders_product_name,
             orders.total_amount AS orders_total_amount,

@@ -1,3 +1,4 @@
+
 <body>
     <div class="cart-container">
         <div class="shopping-cart">
@@ -15,47 +16,36 @@
                     <th>Remove</th>
                 </thead>
                 <tbody>
+                <?php if(isset($_SESSION['cart'])) : ?>
+                    <?php foreach($_SESSION['cart'] as $productId => $item ) : ?>
                     <tr>
-                        <td><img src="images/anh1.png" alt="Product Image" class="product-image" /></td>
-                        <td>Giày Baseketball E35</td>
+                       
+                        <td><img src="<?= BASE_ASSETS_UPLOADS . $item['product_image'] ?>" alt="Product Image" class="product-image" /></td>
+                        <td> <?= $item['product_name'] ?> </td>
                         <td>
                             <div class="details">
-                                <span>Size: 40</span><br><span>Material: Leather</span>
+                                <span>Size: <?= $item['size'] ?> </span><br><span>Material: <?= $item['material'] ?> </span>
                             </div>
                         </td>
-                        <td class="price">8700000</td>
+                        <td class="price"> <?= $item['price'] ?> </td>
                         <td>
-                            <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
-                            <input type="number" value="1" class="quantity" onchange="updateTotal(this)" />
-                            <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                           <a style="text-decoration: none;" href="<?= BASE_URL .'?action=cart-dec&productId=' . $item['id']?>"> <button class="quantity-btn">-</button></a>
+                            <input type="number" disabled value="<?= $item['quantity'] ?>" class="quantity"  onchange="updateTotal(this)" />
+                            <a style="text-decoration: none;" href="<?= BASE_URL .'?action=cart-inc&productId=' . $item['id']?>">   <button class="quantity-btn" >+</button></a>
                         </td>
-                        <td class="product-total">8700000đ</td>
-                        <td><button class="remove-btn" onclick="removeProduct(this)">Xóa</button></td>
+                        <td class="product-total">0đ</td>
+                        <td>   <a href="<?= BASE_URL .'?action=cart-delete&productId=' . $item['id']?>"><button class="remove-btn">Xóa</button> </a>  </td>
                     </tr>
-                    <tr>
-                        <td><img src="images/anh2.png" alt="Product Image" class="product-image" /></td>
-                        <td>Giày Baseketball E35</td>
-                        <td>
-                            <div class="details">
-                                <span>Size: 40</span><br><span>Material: Leather</span>
-                            </div>
-                        </td>
-                        <td class="price">8700000</td>
-                        <td>
-                            <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
-                            <input type="number" value="1" class="quantity" onchange="updateTotal(this)" />
-                            <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
-                        </td>
-                        <td class="product-total">8700000đ</td>
-                        <td><button class="remove-btn" onclick="removeProduct(this)">Xóa</button></td>
-                    </tr>
+                  
+                    <?php endforeach ?>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>
         <div class="summary-container">
             <h3>Tổng tiền giỏ hàng</h3>
             <p style="padding: 12px 0;">Tổng sản phẩm: <span id="total-items">1</span></p>
-            <h3 id="grand-total">Tổng Cộng: 8700000đ</h3>
+            <h3 id="grand-total">Tổng Cộng: 0đ</h3>
             <button class="buy-now">Thanh Toán</button>
         </div>
 

@@ -6,7 +6,7 @@
             <tr>
                 <th>ID</th>
                 <th>Hình ảnh</th>
-                <th>Hành động</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>

@@ -107,8 +107,8 @@
                         'name' => htmlspecialchars($user['name']),
                         'role' => $user['role']
                     ];
-                    $_SESSION['login_success'] = 'Welcome, ' . htmlspecialchars($user['name']);
-                    debug($_SESSION);
+                    // $_SESSION['login_success'] = 'Welcome, ' . htmlspecialchars($user['name']);
+                    
             
                     // Phân quyền
                     if ($user['role'] === 'admin') {
