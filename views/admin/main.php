@@ -75,21 +75,33 @@ if (isset($_POST['logout'])) {
 
                 <hr class="sidebar-divider ">
 
-                <li>
-                    <a href="<?= BASE_URL_ADMIN ?>">Dashboard</a>
-                </li>
-                <hr class="sidebar-divider ">
-                <li>
-                    <a href="<?= BASE_URL_ADMIN . '&action=users-index' ?>">Quản lý User</a>
-                </li>
-                <hr class="sidebar-divider ">
-                <li>
-                    <a href="<?= BASE_URL_ADMIN . '&action=products-index' ?>"> Sản phẩm</a>
-                </li>
-                <hr class="sidebar-divider ">
-                <li>
-                    <a href="<?= BASE_URL_ADMIN . '&action=categories-index' ?>"> Loại Sản Phẩm</a>
-                </li>
+            <li >
+                <a href="<?= BASE_URL_ADMIN ?>">Dashboard</a>
+            </li>
+            <hr class="sidebar-divider ">
+            <li>
+                <a  href="<?= BASE_URL_ADMIN . '&action=users-index' ?>">Quản lý User</a>
+            </li>
+            <hr class="sidebar-divider ">
+            <li>
+                 <a href="<?= BASE_URL_ADMIN . '&action=slidershow-index' ?>">Quản lý Giao Diện</a>
+            </li>
+            <hr class="sidebar-divider ">
+            <li >
+                <a href="<?= BASE_URL_ADMIN . '&action=products-index' ?>"> Sản phẩm</a>
+            </li>
+            <hr class="sidebar-divider "> 
+            <li>
+                <a href="<?= BASE_URL_ADMIN . '&action=categories-index' ?>"> Loại Sản Phẩm</a>
+            </li>
+            <hr class="sidebar-divider ">
+            <li>
+                <a href="<?= BASE_URL_ADMIN . '&action=orders-index' ?>"> Quản lí đơn hàng</a>
+            </li>
+            <hr class="sidebar-divider ">
+        <li> <form method="POST">
+            <button type="submit" onclick="return confirm('Bạn muốn thoát chứ')" class="btn btn-secondary" name="logout">Thoát</button>
+        </form></li>
 
 
             </ul>
@@ -98,9 +110,7 @@ if (isset($_POST['logout'])) {
 
     <div class="right">
         <h1 class="mt-3 mb-3"><?= $title ?? 'Admin Dashboard' ?></h1>
-        <form method="POST">
-            <button type="submit" name="logout">Thoát</button>
-        </form>
+       
         <div class="row">
             <?php
             if (isset($view)) {

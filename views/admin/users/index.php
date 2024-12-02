@@ -22,7 +22,9 @@ if (isset($_SESSION['success'])) {
     <?php foreach ($data as $user): ?>
     <tr>
         <td><?= $user['id'] ?></td>
+
         <td><?= $user['name'] ?></td>
+
         <td><?= $user['email'] ?></td>
         <td>
             <a href="<?= BASE_URL_ADMIN . '&action=users-show&id=' . $user['id'] ?>" class="btn btn-info">Xem</a>

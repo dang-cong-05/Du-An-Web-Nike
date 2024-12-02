@@ -1,12 +1,24 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Website_Nike/configs/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Website_Nike/models/SlidershowModel.php';
+
+$slidershowModel = new SlidershowModel();
+$slides = $slidershowModel->getAll();
+?>
 <div id="slider">
     <div class="slides">
-        <img class="slide" src="./images/Slide-1.jpg" />
-        <img class="slide" src="./images/slide-2.jpg" />
-        <img class="slide" src="./images/slide-3.jpg" />
+        <?php if (!empty($slides)): ?>
+            <?php foreach ($slides as $slide): ?>
+                <img class="slide" src="<?= BASE_URL . $slide['image'] ?>" alt="image">
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>Chưa có slider nào.</p>
+        <?php endif; ?>
+        <a class="prev" onclick="prevSlide()">&#10094;</a>
+        <a class="next" onclick="nextSlide()">&#10095;</a>
     </div>
-    <a class="prev" onclick="prevSlide()">&#10094;</a>
-    <a class="next" onclick="nextSlide()">&#10095;</a>
 </div>
+
 <main>
     <section class="content-section">
         <div class="Latest-section">
@@ -83,3 +95,10 @@
             </div>
     </section>
 </main>
+<script src="/script/slider.js"></script>
+<script>
+    $(document).ready(function() {
+        loadSlider(); 
+    });
+</script>
+    

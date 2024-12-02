@@ -148,11 +148,38 @@ CREATE TABLE `users` (
   `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `password_hash` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+
+
+-- Cấu trúc cho bảng `interface`
+
+
+
+-- Cấu trúc cho bảng `interface`
+CREATE TABLE IF NOT EXISTS `interface` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `description` TEXT COLLATE utf8mb4_unicode_ci NOT NULL,
+    `image` VARCHAR(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL,
+    `user_id` INT DEFAULT NULL,
+    `status` ENUM('Active', 'Inactive', 'Archived') DEFAULT 'Active',
+    `type` VARCHAR(100) NOT NULL,
+    CONSTRAINT fk_user_id FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL
+);
+
+-- Thêm chỉ mục cho các trường `name` và `created_at` để cải thiện hiệu suất truy vấn
+CREATE INDEX idx_name ON interface(name);
+CREATE INDEX idx_created_at ON interface(created_at);
+
+-- 
+-- 
+-- 
 -- Chỉ mục cho các bảng đã đổ
 --
 

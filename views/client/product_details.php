@@ -65,8 +65,7 @@
                     <p>Chi tiết về giao hàng và trả hàng...</p>
                 </div>
                 <div class="reviews">
-                    <h3>Đánh giá (50) ★★★★★</h3>
-                    <p>Xem đánh giá của khách hàng...</p>
+                    <h3>Đánh giá (50) ★★★★★</h3>/-strong/-heart:>:o:-((:-h <p>Xem đánh giá của khách hàng...</p>
                 </div>
             </div>
         </div>

@@ -12,7 +12,6 @@ if (isset($_SESSION['login_sucsess'])) {
     unset($_SESSION['login_sucsess']); // Xóa thông báo sau khi đã hiển thị
     unset($_SESSION['error']); // Xóa thông báo lỗi nếu có
 }
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -22,12 +21,13 @@ if (isset($_SESSION['login_sucsess'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
-    <link rel="stylesheet" href="./style/product_page.css">
-    <link rel="stylesheet" href="./style/Contact.css">
-    <link rel="stylesheet" href="./style/Cart.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>style/home.css" />
     <link rel="stylesheet" href="./style/product_details.css" />
-    <link rel="stylesheet" href="./style/home.css" />
-    <link rel="stylesheet" href="./style/modal.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>style/product_page.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>style/Contact.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>style/Cart.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>style/modal.css">
+
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="icon" href="./images/logo_resized_32x32.png" type="image/png">
@@ -70,9 +70,8 @@ if (isset($_SESSION['login_sucsess'])) {
     padding: 5px;
 }
 </style>
-
 <body>
-    <div class="container">
+<div class="container">
         <header id="header">
             <nav>
                 <div class="logo">
@@ -145,7 +144,7 @@ if (isset($_SESSION['login_sucsess'])) {
             ?>
         </div>
 
-        <footer id="footer" style="min-height: 150px;">
+        <footer id="footer" >
             <ul>
                 <li>© 2024 Nike, Inc. All rights reserved</li>
                 <li>Hướng dẫn</li>
@@ -162,11 +161,16 @@ if (isset($_SESSION['login_sucsess'])) {
     <script src="./script/product_page.js"></script>
     <script src="./script/cart.js"></script>
     <script src="./script/effect.js"></script>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
     AOS.init();
     </script>
+    <script src="/script/slider.js"></script>
+    <script>
+    $(document).ready(function() {
+        loadSlider(); 
+    });
+</script>
 </body>
 
 </html>
