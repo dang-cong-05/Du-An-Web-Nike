@@ -2,7 +2,7 @@
 
 require_once PATH_ROOT . "controllers/client/Product_page.php";
 require_once PATH_ROOT . "controllers/client/Product_detail.php";
-
+require_once PATH_ROOT . "controllers/client/OrderController.php";
 
 
 $action = $_GET['action'] ?? '/';
@@ -40,6 +40,10 @@ match ($action) {
     "cart-delete" =>(new CartController)->cartDelete($_GET['productId']),
 
   
+   "order"=>(new Order_Controller)->index(), // Trang hiển thị đặt hàng
+    "order-save"=>(new Order_Controller)->create(), // Xử lý lưu đơn hàng
+    "order-success"=>(new Order_Controller)->success(), // Trang xác nhận đặt hàng thành công
+
 
 
 

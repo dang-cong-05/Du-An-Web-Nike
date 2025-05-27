@@ -105,6 +105,8 @@
                     $_SESSION['user'] = [
                         'id' => $user['id'],
                         'name' => htmlspecialchars($user['name']),
+                        'email' => ($user['email']),
+                        'phone' => ($user['phone']),
                         'role' => $user['role']
                     ];
                     // $_SESSION['login_success'] = 'Welcome, ' . htmlspecialchars($user['name']);

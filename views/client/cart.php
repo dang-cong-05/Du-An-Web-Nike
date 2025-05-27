@@ -46,7 +46,7 @@
             <h3>Tổng tiền giỏ hàng</h3>
             <p style="padding: 12px 0;">Tổng sản phẩm: <span id="total-items">1</span></p>
             <h3 id="grand-total">Tổng Cộng: 0đ</h3>
-            <button class="buy-now">Thanh Toán</button>
+            <a href="index.php?action=order"><button class="buy-now">Thanh Toán</button></a>
         </div>
 
     </div>

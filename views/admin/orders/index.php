@@ -44,8 +44,7 @@ if (isset($_SESSION['success'])) {
     <td><?= $order['order_status'] ?></td>
     <td><?= $order['order_created_at'] ?></td>
     <td>
-        <a href="<?= BASE_URL_ADMIN . '&action=orders-edit&id=' . $order['orders_id'] ?>" class="btn btn-success">Sửa</a>
-        <a href="<?= BASE_URL_ADMIN . '&action=orders-delete&id=' . $order['orders_id'] ?>" onclick="return confirm('Xóa đơn hàng này?')"class="btn btn-danger">Xóa</a>
+        <a href="<?= BASE_URL_ADMIN . '&action=orders-edit&id=' . $order['orders_id'] ?>" class="btn btn-success">Cập Nhật</a>
     </td>
 </tr>
 <?php endforeach; ?>
